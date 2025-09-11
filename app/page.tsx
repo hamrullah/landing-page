@@ -15,6 +15,7 @@ import {
   FaYoutube,
 } from "react-icons/fa6";
 import { CircularTestimonials } from "./components/ui/circular-testimonials";
+import { Changelog1 } from "./components/ui/changelog-1";
 
 /* Fonts */
 const poppins = Poppins({
@@ -99,6 +100,14 @@ const AGENDA = [
   },
   { time: "4:45 – 5:30 PM", title: "Networking Session & Farewell", desc: "Relaxed networking as guests depart." },
 ];
+
+const AGENDA_ENTRIES = AGENDA.map((a) => ({
+  version: a.time,                       // tampil di pill kiri
+  date: "16 October 2025",               // tanggal event (opsional)
+  title: a.title,
+  description: a.desc,
+  items: a.speakers ? [a.speakers] : undefined,
+}));
 
 /* Page */
 export default function Home() {
@@ -288,29 +297,11 @@ export default function Home() {
             </p>
           </div>
 
-          <ol className="mt-8 divide-y divide-white/15 border-y border-white/15">
-            {AGENDA.map((item, i) => (
-              <li
-                key={`${item.title}-${i}`}
-                className="py-8 md:grid md:grid-cols-[minmax(160px,220px)_1fr] md:gap-8"
-              >
-                <div className="mb-4 md:mb-0">
-                  <span
-                    className="inline-flex items-center rounded-md border border-white/25 bg-white/5 px-3 py-1.5 font-mono text-xs md:text-sm text-white/85 shadow-inner backdrop-blur-[1px]"
-                    aria-label={`Time: ${item.time}`}
-                  >
-                    {item.time}
-                  </span>
-                </div>
-
-                <div>
-                  <h3 className="text-lg md:text-xl font-semibold text-white">{item.title}</h3>
-                  <p className="mt-2 text-white/80 leading-relaxed max-w-3xl">{item.desc}</p>
-                  {item.speakers && <p className="mt-3 text-sm text-white/60 italic">{item.speakers}</p>}
-                </div>
-              </li>
-            ))}
-          </ol>
+          <Changelog1
+              title=""
+              description=""
+              entries={AGENDA_ENTRIES}
+            />
         </div>
       </section>
 
