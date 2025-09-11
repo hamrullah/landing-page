@@ -1,15 +1,67 @@
+/* === Tailwind v4 entry === */
 @import "tailwindcss";
+@reference "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --font-poppins: "Poppins", sans-serif;
+/* =========================
+   Base & variables
+========================= */
+:root{
+  /* warna utama gradient */
+  --pink-rgb: 249, 199, 201;   /* #f9c7c9 */
+  --purple-1: #9473ED;
+  --purple-2: #9980D7;
+  --purple-3: #7131C5;
+  --purple-4: #B881C9;
 }
+
+html, body { height: 100%; }
+* { box-sizing: border-box; }
 
 body {
-  @apply bg-[var(--background)] text-[var(--foreground)] font-sans;
+  margin: 0;
+  @apply font-sans antialiased;
 }
+
+/* =========================
+   Global page background
+   -> pakai: className="bg-aurora-kcs"
+========================= */
+.bg-aurora-kcs{
+  background:
+    /* blush peach kanan-atas */
+    radial-gradient(700px 520px at 98% 12%, rgba(var(--pink-rgb),0.85), transparent 55%),
+    /* blush bawah-kiri */
+    radial-gradient(640px 480px at 18% 86%, rgba(184,129,201,0.60), transparent 60%),
+    /* gradasi utama kiri→kanan */
+    linear-gradient(90deg,
+      var(--purple-1) 4%,
+      var(--purple-2) 30%,
+      var(--purple-3) 60%,
+      var(--purple-4) 100%);
+  background-repeat: no-repeat;
+}
+
+/* Responsive tweak (opsional) */
+@media (max-width: 1024px){
+  .bg-aurora-kcs{
+    background:
+      radial-gradient(60vw 42vw at 92% 14%, rgba(var(--pink-rgb),0.90), transparent 55%),
+      radial-gradient(70vw 48vw at 22% 86%, rgba(184,129,201,0.55), transparent 60%),
+      linear-gradient(90deg,
+        var(--purple-1) 4%,
+        var(--purple-2) 30%,
+        var(--purple-3) 60%,
+        var(--purple-4) 100%);
+  }
+}
+
+/* ==========
+   Helpers
+========== */
+/* fokus ring default untuk keyboard users */
+:focus-visible { outline: 2px solid rgb(147 197 253); outline-offset: 2px; }
+
+/* hilangkan spin button di input type=number (kalau nanti dibutuhkan) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+input[type="number"]{ -moz-appearance: textfield; }
