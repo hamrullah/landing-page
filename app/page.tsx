@@ -14,6 +14,7 @@ import {
   FaBehance,
   FaYoutube,
 } from "react-icons/fa6";
+import { CircularTestimonials } from "./components/ui/circular-testimonials";
 
 /* Fonts */
 const poppins = Poppins({
@@ -25,27 +26,77 @@ const poppins = Poppins({
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const SPEAKERS = [
-  { name: "Christian Gerron", role: "CRO, StackAdapt", img: "/attend1.jpg" },
-  { name: "Liam McCarten", role: "APAC VP, StackAdapt", img: "/attend2.jpg" },
-  { name: "Anna Goodridge", role: "Senior Conversion Expert", img: "/attend3.jpg" },
-  { name: "Jessica Tan", role: "Marketing Leader", img: "/attend4.jpg" },
-  { name: "David Wong", role: "CEO", img: "/attend1.jpg" },
-  { name: "Miranda Simopoulos", role: "Regional CMO", img: "/attend3.jpg" },
+  { name: "Christian Gerron", role: "CRO, StackAdapt", img: "/attend1.jpg",quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!" },
+  { name: "Liam McCarten", role: "APAC VP, StackAdapt", img: "/attend2.jpg" ,quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!"},
+  { name: "Anna Goodridge", role: "Senior Conversion Expert", img: "/attend3.jpg",quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!" },
+  { name: "Jessica Tan", role: "Marketing Leader", img: "/attend4.jpg" ,quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!"},
+  { name: "David Wong", role: "CEO", img: "/attend1.jpg", quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!" },
+  { name: "Miranda Simopoulos", role: "Regional CMO", img: "/attend3.jpg" ,quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!"},
 ];
 
+const SPEAKER_TESTIMONIALS = SPEAKERS.map((s) => ({
+  name: s.name,
+  designation: s.role,
+  src: s.img,
+  quote: s.quote
+}));
+
 const AGENDA = [
-  { time: "12:30 – 1:15 PM", title: "Registration & Networking Lunch", desc: "Guest arrivals with light bites and canapés, informal networking." },
-  { time: "1:15 – 1:20 PM", title: "Welcome by Emcee", desc: "Emcee introduction, overview of the day’s objective : Exploring strategies that convert awareness into measurable impact." },
-  { time: "1:20 – 1:25 PM", title: "CEO Opening Keynote – Keem", desc: "Welcome address and quick introduction Setting the tone: Why this conversation matters for brands moving into 2026.", speakers: "Keem, CEO" },
-  { time: "1:25 – 1:45 PM", title: "Julie’s: Rebranding that Converts Perceptions into Loyalty", desc: "Case study on how Julie’s repositioned its brand to build trust and long-term consumer connection.", speakers: "Julie’s Marketing Team" },
-  { time: "1:45 – 2:05 PM", title: "PayNet : Shaping Everyday Behaviour: Educating Users into Adoption", desc: "How to build trust and adoption by integrating seamlessly into daily life, turning innovative solutions into habits that feel natural and intuitive for users.", speakers: "PayNet Representative" },
-  { time: "2:05 – 2:25 PM", title: "Richard Ker: The Creator’s Edge", desc: "Storytelling that Converts Audiences into Advocates Why authentic, creator-driven narratives outlast algorithms and strengthen brand advocacy", speakers: "Richard Ker" },
-  { time: "2:25 – 2:45 PM", title: "StackAdapt: Programmatic Without Borders", desc: "Programmatic Without Borders: Cross-Channel, Cross-Impact How programmatic unifies CTV, DOOH, audio, and display to drive measurable brand results.", speakers: "StackAdapt Team" },
-  { time: "2:45 – 3:05 PM", title: "KCS: The Performance Marketing Engine", desc: "Converting Strategy into Execution: The Performance Marketing Engine Introducing PME, a structured system that ties creativity, storytelling, and media into measurable growth.", speakers: "KCS Representative" },
+  {
+    time: "12:30 – 1:15 PM",
+    title: "Registration & Networking Lunch",
+    desc: "Guest arrivals with light bites and canapés, informal networking.",
+  },
+  {
+    time: "1:15 – 1:20 PM",
+    title: "Welcome by Emcee",
+    desc: "Emcee introduction, overview of the day’s objective: Exploring strategies that convert awareness into measurable impact.",
+  },
+  {
+    time: "1:20 – 1:25 PM",
+    title: "CEO Opening Keynote – Keem",
+    desc: "Welcome address and quick introduction. Setting the tone: Why this conversation matters for brands moving into 2026.",
+    speakers: "Keem, CEO",
+  },
+  {
+    time: "1:25 – 1:45 PM",
+    title: "Julie’s: Rebranding that Converts Perceptions into Loyalty",
+    desc: "Case study on how Julie’s repositioned its brand to build trust and long-term consumer connection.",
+    speakers: "Julie’s Marketing Team",
+  },
+  {
+    time: "1:45 – 2:05 PM",
+    title: "PayNet : Shaping Everyday Behaviour: Educating Users into Adoption",
+    desc: "How to build trust and adoption by integrating seamlessly into daily life, turning innovative solutions into habits that feel natural and intuitive for users.",
+    speakers: "PayNet Representative",
+  },
+  {
+    time: "2:05 – 2:25 PM",
+    title: "Richard Ker: The Creator’s Edge",
+    desc: "Storytelling that converts audiences into advocates. Why authentic, creator-driven narratives outlast algorithms and strengthen brand advocacy.",
+    speakers: "Richard Ker",
+  },
+  {
+    time: "2:25 – 2:45 PM",
+    title: "StackAdapt: Programmatic Without Borders",
+    desc: "How programmatic unifies CTV, DOOH, audio, and display to drive measurable brand results.",
+    speakers: "StackAdapt Team",
+  },
+  {
+    time: "2:45 – 3:05 PM",
+    title: "KCS: The Performance Marketing Engine",
+    desc: "Introducing PME, a structured system that ties creativity, storytelling, and media into measurable growth.",
+    speakers: "KCS Representative",
+  },
   { time: "3:05 – 3:25 PM", title: "Coffee Break & Networking", desc: "Refreshments and informal mingling." },
-  { time: "3:25 – 3:55 PM", title: "Panel / Fireside Chat", desc: "Panel Session / Fireside Chat – Moderated by Emcee Conversion in the New Marketing Era" },
-  { time: "3:55 – 4:15 PM", title: "Interactive Session – Moderated by Emcee", desc: "A fun and engaging recap of key learnings, with small prizes for winners." },
-  { time: "4:15 – 4:45 PM", title: "Closing Remarks - KCS Representative", desc: "Key takeaways tying together insights to shape impactful marketing plans for 2026.", speakers: "KCS Representative" },
+  { time: "3:25 – 3:55 PM", title: "Panel / Fireside Chat", desc: "Conversion in the New Marketing Era." },
+  { time: "3:55 – 4:15 PM", title: "Interactive Session", desc: "A fun and engaging recap of key learnings, with small prizes for winners." },
+  {
+    time: "4:15 – 4:45 PM",
+    title: "Closing Remarks - KCS Representative",
+    desc: "Key takeaways tying together insights to shape impactful marketing plans for 2026.",
+    speakers: "KCS Representative",
+  },
   { time: "4:45 – 5:30 PM", title: "Networking Session & Farewell", desc: "Relaxed networking as guests depart." },
 ];
 
@@ -95,9 +146,11 @@ export default function Home() {
             <h2 className="text-3xl font-extrabold mb-6">
               <span className="text-gray-200">Your 2026 Playbook Starts Here</span>
             </h2>
-            <p className="text-gray-200/80">
-              Gain insights from brands, creators, and  platforms shaping the future of marketing.  Leave with a playbook of strategies —  from storytelling to performance for you  to power your 2026 campaigns. Event Info Block: ● October 16, 2025 ● Colony @ KL Eco City ● Invite-only.
-            </p>
+            <motion.p {...fadeUp} className="text-gray-200/80">
+              Gain insights from brands, creators, and platforms shaping the future of marketing. Leave with a playbook
+              of strategies — from storytelling to performance for you to power your 2026 campaigns. Event Info Block:
+              ● October 16, 2025 ● Colony @ KL Eco City ● Invite-only.
+            </motion.p>
           </motion.div>
 
           <motion.aside
@@ -107,13 +160,16 @@ export default function Home() {
           >
             <div className="flex items-center gap-3">
               <Calendar className="text-blue-300 w-5 h-5" aria-hidden="true" />
-              <span><time dateTime="2025-10-16">October 16, 2025</time></span>
+              <span>
+                <time dateTime="2025-10-16">October 16, 2025</time>
+              </span>
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="text-blue-300 w-5 h-5" aria-hidden="true" />
               <Link
                 href="https://www.google.com/maps/search/?api=1&query=Colony+%40+KL+Eco+City"
-                target="_blank" rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:underline text-blue-200 font-medium"
               >
                 Colony @ KL Eco City · Invite-only
@@ -135,7 +191,11 @@ export default function Home() {
               The Conversion Playbook:
             </motion.h2>
             <motion.p {...fadeUp} className="text-white/80">
-              Shaping Your 2026  Marketing Plan is an exclusive event designed for  marketing leaders, brand builders, and  decision-makers. You’ll hear from brands, platforms,  and creators who are reshaping the way marketing  connects with people. The sessions are designed to  inspire bold ideas, share practical strategies, and  spark conversations. Why Attend ● Future-ready insights ● Actionable frameworks ● Real brand stories ● Meaningful connections.
+              Shaping Your 2026 Marketing Plan is an exclusive event designed for marketing leaders, brand builders, and
+              decision-makers. You’ll hear from brands, platforms, and creators who are reshaping the way marketing
+              connects with people. The sessions are designed to inspire bold ideas, share practical strategies, and
+              spark conversations. Why Attend ● Future-ready insights ● Actionable frameworks ● Real brand stories ●
+              Meaningful connections.
             </motion.p>
           </div>
         </div>
@@ -150,7 +210,8 @@ export default function Home() {
             </h2>
           </header>
 
-          <ul className="grid grid-cols-2 md:grid-cols-3 gap-8">
+          {/* Grid kartu speaker */}
+          {/* <ul className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {SPEAKERS.map((spk, i) => (
               <li key={`${spk.name}-${i}`} className="text-center">
                 <div className="relative overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-lg">
@@ -163,8 +224,6 @@ export default function Home() {
                     className="object-cover w-full aspect-[3/4] transition-transform duration-500 hover:scale-105"
                     priority={i === 0}
                   />
-
-                  {/* overlay label */}
                   <div className="pointer-events-none absolute inset-x-0 top-0 p-3 text-left">
                     <div className="rounded-md bg-gradient-to-b from-blue-600/70 to-transparent p-3">
                       <p className="text-xs uppercase tracking-wide text-white/90">{spk.role}</p>
@@ -172,12 +231,32 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-
                 <p className="mt-4 font-semibold">{spk.name}</p>
                 <p className="text-sm text-white/70">{spk.role}</p>
               </li>
             ))}
-          </ul>
+          </ul> */}
+
+          {/* Animasi CircularTestimonials */}
+          <div className="mt-16">
+            <CircularTestimonials
+              testimonials={SPEAKER_TESTIMONIALS}
+              autoplay
+              colors={{
+                name: "#ffffff",
+                designation: "rgba(255,255,255,0.85)",
+                testimony: "rgba(255,255,255,0.9)",
+                arrowBackground: "rgba(0,0,0,0.65)",
+                arrowForeground: "#ffffff",
+                arrowHoverBackground: "#3b82f6",
+              }}
+              fontSizes={{
+                name: "22px",
+                designation: "14px",
+                quote: "18px",
+              }}
+            />
+          </div>
         </div>
       </section>
 
@@ -202,9 +281,10 @@ export default function Home() {
             <h3 className="text-xl font-semibold text-white">Event Objective</h3>
             <p>
               This event brings together leading voices—brands, platforms, and creators—to share insights on the future
-              of marketing. From rebranding journeys and creator-led strategies to programmatic innovation and data-driven
-              storytelling, sessions are designed to spark ideas for building effective, future-ready campaigns. The goal is
-              to equip participants with fresh perspectives, practical strategies, and inspiration for shaping their 2026 marketing plans.
+              of marketing. From rebranding journeys and creator-led strategies to programmatic innovation and
+              data-driven storytelling, sessions are designed to spark ideas for building effective, future-ready
+              campaigns. The goal is to equip participants with fresh perspectives, practical strategies, and
+              inspiration for shaping their 2026 marketing plans.
             </p>
           </div>
 
@@ -216,9 +296,7 @@ export default function Home() {
               >
                 <div className="mb-4 md:mb-0">
                   <span
-                    className="inline-flex items-center rounded-md border border-white/25 bg-white/5
-                               px-3 py-1.5 font-mono text-xs md:text-sm text-white/85 shadow-inner
-                               backdrop-blur-[1px]"
+                    className="inline-flex items-center rounded-md border border-white/25 bg-white/5 px-3 py-1.5 font-mono text-xs md:text-sm text-white/85 shadow-inner backdrop-blur-[1px]"
                     aria-label={`Time: ${item.time}`}
                   >
                     {item.time}
@@ -228,9 +306,7 @@ export default function Home() {
                 <div>
                   <h3 className="text-lg md:text-xl font-semibold text-white">{item.title}</h3>
                   <p className="mt-2 text-white/80 leading-relaxed max-w-3xl">{item.desc}</p>
-                  {item.speakers && (
-                    <p className="mt-3 text-sm text-white/60 italic">{item.speakers}</p>
-                  )}
+                  {item.speakers && <p className="mt-3 text-sm text-white/60 italic">{item.speakers}</p>}
                 </div>
               </li>
             ))}
@@ -272,20 +348,28 @@ export default function Home() {
               {/* First / Last */}
               <div>
                 <label htmlFor="firstName" className="block text-sm font-medium mb-1">
-                  First Name<span className="text-blue-300 ml-1" aria-hidden>*</span>
+                  First Name<span className="text-blue-300 ml-1" aria-hidden>
+                    *
+                  </span>
                 </label>
                 <input
-                  id="firstName" name="firstName" required
+                  id="firstName"
+                  name="firstName"
+                  required
                   className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   placeholder="First Name"
                 />
               </div>
               <div>
                 <label htmlFor="lastName" className="block text-sm font-medium mb-1">
-                  Last Name<span className="text-blue-300 ml-1" aria-hidden>*</span>
+                  Last Name<span className="text-blue-300 ml-1" aria-hidden>
+                    *
+                  </span>
                 </label>
                 <input
-                  id="lastName" name="lastName" required
+                  id="lastName"
+                  name="lastName"
+                  required
                   className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   placeholder="Last Name"
                 />
@@ -294,55 +378,84 @@ export default function Home() {
               {/* Email / Phone */}
               <div>
                 <label htmlFor="businessEmail" className="block text-sm font-medium mb-1">
-                  Business Email<span className="text-blue-300 ml-1" aria-hidden>*</span>
+                  Business Email<span className="text-blue-300 ml-1" aria-hidden>
+                    *
+                  </span>
                 </label>
                 <input
-                  id="businessEmail" name="businessEmail" type="email" inputMode="email" required autoComplete="email"
+                  id="businessEmail"
+                  name="businessEmail"
+                  type="email"
+                  inputMode="email"
+                  required
+                  autoComplete="email"
                   className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  placeholder="Business Email"
+                  placeholder="you@company.com"
                 />
               </div>
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium mb-1">
-                  Phone Number<span className="text-blue-300 ml-1" aria-hidden>*</span>
+                  Phone Number<span className="text-blue-300 ml-1" aria-hidden>
+                    *
+                  </span>
                 </label>
                 <input
-                  id="phone" name="phone" type="tel" inputMode="tel" required autoComplete="tel"
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  inputMode="tel"
+                  required
+                  autoComplete="tel"
                   className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  placeholder="Phone Number"
+                  placeholder="+60 12 345 6789"
                 />
               </div>
 
               {/* Job Title / Company Name */}
               <div>
                 <label htmlFor="jobTitle" className="block text-sm font-medium mb-1">
-                  Job Title<span className="text-blue-300 ml-1" aria-hidden>*</span>
+                  Job Title<span className="text-blue-300 ml-1" aria-hidden>
+                    *
+                  </span>
                 </label>
                 <input
-                  id="jobTitle" name="jobTitle" required
+                  id="jobTitle"
+                  name="jobTitle"
+                  required
                   className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  placeholder="Job Title"
+                  placeholder="Marketing Lead"
                 />
               </div>
               <div>
                 <label htmlFor="companyName" className="block text-sm font-medium mb-1">
-                  Company Name<span className="text-blue-300 ml-1" aria-hidden>*</span>
+                  Company Name<span className="text-blue-300 ml-1" aria-hidden>
+                    *
+                  </span>
                 </label>
                 <input
-                  id="companyName" name="companyName" required autoComplete="organization"
+                  id="companyName"
+                  name="companyName"
+                  required
+                  autoComplete="organization"
                   className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  placeholder="Company Name"
+                  placeholder="Acme Sdn Bhd"
                 />
               </div>
 
               {/* Country */}
               <div className="md:col-span-2">
-                <label htmlFor="companyCountry" className="block text-sm font-medium mb-1">Company Country</label>
+                <label htmlFor="companyCountry" className="block text-sm font-medium mb-1">
+                  Company Country
+                </label>
                 <select
-                  id="companyCountry" name="companyCountry" defaultValue=""
+                  id="companyCountry"
+                  name="companyCountry"
+                  defaultValue=""
                   className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 >
-                  <option value="" disabled>Select a country</option>
+                  <option value="" disabled>
+                    Select a country
+                  </option>
                   <option>Malaysia</option>
                   <option>Singapore</option>
                   <option>Indonesia</option>
@@ -355,12 +468,18 @@ export default function Home() {
 
               {/* Company Type / Size */}
               <div>
-                <label htmlFor="companyType" className="block text-sm font-medium mb-1">Company Type</label>
+                <label htmlFor="companyType" className="block text-sm font-medium mb-1">
+                  Company Type
+                </label>
                 <select
-                  id="companyType" name="companyType" defaultValue=""
+                  id="companyType"
+                  name="companyType"
+                  defaultValue=""
                   className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 >
-                  <option value="" disabled>Select type</option>
+                  <option value="" disabled>
+                    Select type
+                  </option>
                   <option>Brand / Advertiser</option>
                   <option>Agency</option>
                   <option>Tech / Platform</option>
@@ -369,12 +488,18 @@ export default function Home() {
                 </select>
               </div>
               <div>
-                <label htmlFor="companySize" className="block text-sm font-medium mb-1">Company Size</label>
+                <label htmlFor="companySize" className="block text-sm font-medium mb-1">
+                  Company Size
+                </label>
                 <select
-                  id="companySize" name="companySize" defaultValue=""
+                  id="companySize"
+                  name="companySize"
+                  defaultValue=""
                   className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 >
-                  <option value="" disabled>Select size</option>
+                  <option value="" disabled>
+                    Select size
+                  </option>
                   <option>1–10</option>
                   <option>11–50</option>
                   <option>51–200</option>
@@ -390,14 +515,16 @@ export default function Home() {
                   Do you have any dietary restrictions?
                 </label>
                 <textarea
-                  id="dietary" name="dietary" rows={3}
+                  id="dietary"
+                  name="dietary"
+                  rows={3}
                   className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   placeholder="e.g., vegetarian, no nuts"
                 />
               </div>
             </div>
 
-            {/* Checkboxes (uniform size 20x20) */}
+            {/* Checkboxes */}
             <div className="mt-6 space-y-4">
               <label htmlFor="agreeTerms" className="flex items-start gap-3 cursor-pointer select-none">
                 <input id="agreeTerms" name="agreeTerms" type="checkbox" required className="peer sr-only" />
@@ -408,12 +535,23 @@ export default function Home() {
                              peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-blue-400
                              peer-checked:bg-blue-600 peer-checked:border-blue-600"
                 >
-                  <svg viewBox="0 0 20 20" className="h-3.5 w-3.5 text-white opacity-0 transition-opacity duration-150 peer-checked:opacity-100">
-                    <path d="M5 10l3 3 7-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <svg
+                    viewBox="0 0 20 20"
+                    className="h-3.5 w-3.5 text-white opacity-0 transition-opacity duration-150 peer-checked:opacity-100"
+                  >
+                    <path
+                      d="M5 10l3 3 7-7"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </span>
                 <span className="text-sm leading-snug">
-                  Yes, I have read and accepted the <span className="underline decoration-white/50">Event Terms and Conditions</span>.
+                  Yes, I have read and accepted the{" "}
+                  <span className="underline decoration-white/50">Event Terms and Conditions</span>.
                 </span>
               </label>
 
@@ -426,8 +564,18 @@ export default function Home() {
                              peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-blue-400
                              peer-checked:bg-blue-600 peer-checked:border-blue-600"
                 >
-                  <svg viewBox="0 0 20 20" className="h-3.5 w-3.5 text-white opacity-0 transition-opacity duration-150 peer-checked:opacity-100">
-                    <path d="M5 10l3 3 7-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <svg
+                    viewBox="0 0 20 20"
+                    className="h-3.5 w-3.5 text-white opacity-0 transition-opacity duration-150 peer-checked:opacity-100"
+                  >
+                    <path
+                      d="M5 10l3 3 7-7"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </span>
                 <span className="text-sm leading-snug">
@@ -483,11 +631,13 @@ export default function Home() {
             <div className="space-y-3 text-black/80 text-sm md:text-base">
               <p>2025 © All rights reserved. Kredence Creative Solutions Sdn Bhd</p>
               <p>
-                Unit 16–01, Menara MBMR, 1, Jalan Syed Putra, 58000<br />
+                Unit 16–01, Menara MBMR, 1, Jalan Syed Putra, 58000
+                <br />
                 Kuala Lumpur
               </p>
               <p>
-                +6018-203 8817<br />
+                +6018-203 8817
+                <br />
                 worktogether@kredencecs.com
               </p>
             </div>
@@ -517,15 +667,13 @@ export default function Home() {
                     name="email"
                     required
                     placeholder="Enter your email address"
-                    className="w-full rounded-full border border-black/20 bg-white/70 px-5 py-3 pr-14
-                               placeholder-black/50 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                    className="w-full rounded-full border border-black/20 bg-white/70 px-5 py-3 pr-14 placeholder-black/50 focus:outline-none focus:ring-2 focus:ring-purple-400"
                   />
                 </div>
                 <button
                   type="submit"
                   aria-label="Subscribe"
-                  className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-black/20
-                             bg-white shadow hover:bg-white/90 transition"
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-black/20 bg-white shadow hover:bg-white/90 transition"
                 >
                   <ArrowRight className="h-5 w-5 text-purple-800" />
                 </button>
@@ -549,8 +697,7 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-black text-white shadow
-                               hover:opacity-90 focus-visible:ring-2 focus-visible:ring-purple-400 transition"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-black text-white shadow hover:opacity-90 focus-visible:ring-2 focus-visible:ring-purple-400 transition"
                     title={label}
                   >
                     <Icon className="h-5 w-5" />
