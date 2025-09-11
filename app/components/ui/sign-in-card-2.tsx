@@ -19,7 +19,10 @@ export function Component({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const data = Object.fromEntries(
+      new FormData(form).entries()
+    ) as Record<string, FormDataEntryValue>; // ← ketik hasil fromEntries
+
     if (onSubmit) {
       onSubmit(data);
     } else {
@@ -43,7 +46,7 @@ export function Component({
             {/* First / Last */}
             <div>
               <label htmlFor="firstName" className="block text-sm font-medium mb-1">
-                First Name<span className="text-blue-300 ml-1" aria-hidden>*</span>
+                First Name<span className="text-blue-300 ml-1" aria-hidden="true">*</span>
               </label>
               <input
                 id="firstName"
@@ -55,7 +58,7 @@ export function Component({
             </div>
             <div>
               <label htmlFor="lastName" className="block text-sm font-medium mb-1">
-                Last Name<span className="text-blue-300 ml-1" aria-hidden>*</span>
+                Last Name<span className="text-blue-300 ml-1" aria-hidden="true">*</span>
               </label>
               <input
                 id="lastName"
@@ -69,7 +72,7 @@ export function Component({
             {/* Email / Phone */}
             <div>
               <label htmlFor="businessEmail" className="block text-sm font-medium mb-1">
-                Business Email<span className="text-blue-300 ml-1" aria-hidden>*</span>
+                Business Email<span className="text-blue-300 ml-1" aria-hidden="true">*</span>
               </label>
               <input
                 id="businessEmail"
@@ -78,13 +81,13 @@ export function Component({
                 inputMode="email"
                 autoComplete="email"
                 required
-                placeholder="Business Email"
+                placeholder="you@company.com"
                 className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
               />
             </div>
             <div>
               <label htmlFor="phone" className="block text-sm font-medium mb-1">
-                Phone Number<span className="text-blue-300 ml-1" aria-hidden>*</span>
+                Phone Number<span className="text-blue-300 ml-1" aria-hidden="true">*</span>
               </label>
               <input
                 id="phone"
@@ -93,7 +96,7 @@ export function Component({
                 inputMode="tel"
                 autoComplete="tel"
                 required
-                placeholder="Phone Number"
+                placeholder="+60 12 345 6789"
                 className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
               />
             </div>
@@ -101,7 +104,7 @@ export function Component({
             {/* Job Title / Company Name */}
             <div>
               <label htmlFor="jobTitle" className="block text-sm font-medium mb-1">
-                Job Title<span className="text-blue-300 ml-1" aria-hidden>*</span>
+                Job Title<span className="text-blue-300 ml-1" aria-hidden="true">*</span>
               </label>
               <input
                 id="jobTitle"
@@ -113,7 +116,7 @@ export function Component({
             </div>
             <div>
               <label htmlFor="companyName" className="block text-sm font-medium mb-1">
-                Company Name<span className="text-blue-300 ml-1" aria-hidden>*</span>
+                Company Name<span className="text-blue-300 ml-1" aria-hidden="true">*</span>
               </label>
               <input
                 id="companyName"
