@@ -53,11 +53,17 @@ export default function Home() {
   return (
     <main
       className={`${poppins.className} text-white`}
-      style={{
+     style={{
     background: `
-      radial-gradient(600px 420px at 85% 12%, rgba(255,210,200,0.70), transparent 60%),
-      radial-gradient(720px 520px at 14% 82%, rgba(255,210,200,0.58), transparent 60%),
-      linear-gradient(180deg, #5A2BD8 0%, #6B37E2 45%, #4D22B8 100%)
+      /* blush peach kanan-atas */
+      radial-gradient(700px 520px at 98% 12%, rgba(255, 216, 206, 0.85), transparent 55%),
+      /* gradasi utama kiri→kanan */
+      linear-gradient(90deg,
+        #5A2BD8 0%,
+        #6B3BE1 30%,
+        #9B72D7 60%,
+        #FFD3C8 100%
+      )
     `,
     backgroundRepeat: "no-repeat",
   }}
