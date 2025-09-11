@@ -35,18 +35,18 @@ const SPEAKERS = [
 
 const AGENDA = [
   { time: "12:30 – 1:15 PM", title: "Registration & Networking Lunch", desc: "Guest arrivals with light bites and canapés, informal networking." },
-  { time: "1:15 – 1:20 PM", title: "Welcome by Emcee", desc: "Emcee introduction, overview of the day’s objective: Exploring strategies that convert awareness into measurable impact." },
-  { time: "1:20 – 1:25 PM", title: "CEO Opening Keynote – Keem", desc: "Welcome address and quick introduction. Setting the tone: Why this conversation matters for brands moving into 2026.", speakers: "Keem, CEO" },
-  { time: "1:25 – 1:45 PM", title: "Julie’s: Rebranding that Converts Perceptions into Loyalty", desc: "How Julie’s repositioned its brand to build trust and long-term consumer connection.", speakers: "Julie’s Marketing Team" },
-  { time: "1:45 – 2:05 PM", title: "PayNet: Shaping Everyday Behaviour", desc: "Turning innovative solutions into daily habits that feel natural and intuitive.", speakers: "PayNet Representative" },
-  { time: "2:05 – 2:25 PM", title: "Richard Ker: The Creator’s Edge", desc: "Why authentic, creator-driven narratives strengthen brand advocacy.", speakers: "Richard Ker" },
-  { time: "2:25 – 2:45 PM", title: "StackAdapt: Programmatic Without Borders", desc: "Unifying CTV, DOOH, audio, and display to drive measurable brand results.", speakers: "StackAdapt Team" },
-  { time: "2:45 – 3:05 PM", title: "KCS: The Performance Marketing Engine", desc: "PME ties creativity, storytelling, and media into measurable growth.", speakers: "KCS Representative" },
+  { time: "1:15 – 1:20 PM", title: "Welcome by Emcee", desc: "Emcee introduction, overview of the day’s objective : Exploring strategies that convert awareness into measurable impact." },
+  { time: "1:20 – 1:25 PM", title: "CEO Opening Keynote – Keem", desc: "Welcome address and quick introduction Setting the tone: Why this conversation matters for brands moving into 2026.", speakers: "Keem, CEO" },
+  { time: "1:25 – 1:45 PM", title: "Julie’s: Rebranding that Converts Perceptions into Loyalty", desc: "Case study on how Julie’s repositioned its brand to build trust and long-term consumer connection.", speakers: "Julie’s Marketing Team" },
+  { time: "1:45 – 2:05 PM", title: "PayNet : Shaping Everyday Behaviour: Educating Users into Adoption", desc: "How to build trust and adoption by integrating seamlessly into daily life, turning innovative solutions into habits that feel natural and intuitive for users.", speakers: "PayNet Representative" },
+  { time: "2:05 – 2:25 PM", title: "Richard Ker: The Creator’s Edge", desc: "Storytelling that Converts Audiences into Advocates Why authentic, creator-driven narratives outlast algorithms and strengthen brand advocacy", speakers: "Richard Ker" },
+  { time: "2:25 – 2:45 PM", title: "StackAdapt: Programmatic Without Borders", desc: "Programmatic Without Borders: Cross-Channel, Cross-Impact How programmatic unifies CTV, DOOH, audio, and display to drive measurable brand results.", speakers: "StackAdapt Team" },
+  { time: "2:45 – 3:05 PM", title: "KCS: The Performance Marketing Engine", desc: "Converting Strategy into Execution: The Performance Marketing Engine Introducing PME, a structured system that ties creativity, storytelling, and media into measurable growth.", speakers: "KCS Representative" },
   { time: "3:05 – 3:25 PM", title: "Coffee Break & Networking", desc: "Refreshments and informal mingling." },
-  { time: "3:25 – 3:55 PM", title: "Panel / Fireside Chat", desc: "Conversion in the New Marketing Era." },
-  { time: "3:55 – 4:15 PM", title: "Interactive Session", desc: "Engaging recap with small prizes." },
-  { time: "4:15 – 4:45 PM", title: "Closing Remarks", desc: "Key takeaways to shape impactful 2026 plans.", speakers: "KCS Representative" },
-  { time: "4:45 – 5:30 PM", title: "Networking & Farewell", desc: "Relaxed networking as guests depart." },
+  { time: "3:25 – 3:55 PM", title: "Panel / Fireside Chat", desc: "Panel Session / Fireside Chat – Moderated by Emcee Conversion in the New Marketing Era" },
+  { time: "3:55 – 4:15 PM", title: "Interactive Session – Moderated by Emcee", desc: "A fun and engaging recap of key learnings, with small prizes for winners." },
+  { time: "4:15 – 4:45 PM", title: "Closing Remarks - KCS Representative", desc: "Key takeaways tying together insights to shape impactful marketing plans for 2026.", speakers: "KCS Representative" },
+  { time: "4:45 – 5:30 PM", title: "Networking Session & Farewell", desc: "Relaxed networking as guests depart." },
 ];
 
 /* Page */
@@ -96,9 +96,7 @@ export default function Home() {
               <span className="text-gray-200">Your 2026 Playbook Starts Here</span>
             </h2>
             <p className="text-gray-200/80">
-              Gain insights from brands, creators, and platforms shaping the future of marketing. Leave with a playbook
-              of strategies — from storytelling to performance for you to power your 2026 campaigns.
-              Event Info Block: ● October 16, 2025 ● Colony @ KL Eco City ● Invite-only.
+              Gain insights from brands, creators, and  platforms shaping the future of marketing.  Leave with a playbook of strategies —  from storytelling to performance for you  to power your 2026 campaigns. Event Info Block: ● October 16, 2025 ● Colony @ KL Eco City ● Invite-only.
             </p>
           </motion.div>
 
@@ -137,10 +135,7 @@ export default function Home() {
               The Conversion Playbook:
             </motion.h2>
             <motion.p {...fadeUp} className="text-white/80">
-              Shaping Your 2026 Marketing Plan is an exclusive event designed for marketing leaders, brand builders, and
-              decision-makers. You’ll hear from brands, platforms, and creators who are reshaping the way marketing
-              connects with people. The sessions are designed to inspire bold ideas, share practical strategies, and spark conversations.
-              Why Attend ● Future-ready insights ● Actionable frameworks ● Real brand stories ● Meaningful connections
+              Shaping Your 2026  Marketing Plan is an exclusive event designed for  marketing leaders, brand builders, and  decision-makers. You’ll hear from brands, platforms,  and creators who are reshaping the way marketing  connects with people. The sessions are designed to  inspire bold ideas, share practical strategies, and  spark conversations. Why Attend ● Future-ready insights ● Actionable frameworks ● Real brand stories ● Meaningful connections.
             </motion.p>
           </div>
         </div>
