@@ -64,27 +64,39 @@ export default function Home() {
     >
       {/* ================= HERO ================= */}
       <section
-        className="relative isolate flex flex-col items-center justify-center min-h-[100svh] overflow-hidden"
-        aria-labelledby="event-title"
-      >
-        <motion.div {...fadeUp} className="relative z-10 text-center px-4">
-          <h1 id="event-title" className="text-3xl md:text-5xl font-extrabold tracking-tight mb-3">
-            THE CONVERSION PLAYBOOK:
-          </h1>
-          <p className="text-2xl md:text-4xl font-extrabold tracking-tight mb-4">
-            Shaping Your Marketing Plan Event
-          </p>
-          <p className="text-gray-200/90 mb-6">
-            <time dateTime="2025-10-16">October 16, 2025</time> — Kuala Lumpur
-          </p>
-          <a
-            href="#register"
-            className="inline-block px-6 py-3 bg-blue-600 rounded-full font-semibold text-white shadow hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 transition"
-          >
-            Register Now
-          </a>
-        </motion.div>
-      </section>
+  className="relative isolate flex flex-col items-center justify-center min-h-[100svh] overflow-hidden"
+  aria-labelledby="event-title"
+>
+  <motion.div {...fadeUp} className="relative z-10 text-center px-4 text-black">
+    <p className="mb-6">
+      <time dateTime="2025-10-16">October 16, 2025</time> — Kuala Lumpur
+    </p>
+
+    <h1
+      id="event-title"
+      className="text-black text-3xl md:text-5xl font-extrabold tracking-tight mb-3"
+    >
+      THE CONVERSION PLAYBOOK:
+    </h1>
+
+    <p className="text-black text-2xl md:text-4xl font-extrabold tracking-tight mb-4">
+      Shaping Your Marketing Plan Event
+    </p>
+
+    <p className="text-black mb-6">
+      COLONY, KEL ECO CITY CALL-TO-ACTION
+    </p>
+
+    {/* CTA: tetap putih di atas tombol biru untuk kontras */}
+    <a
+      href="#register"
+      className="inline-block px-6 py-3 bg-blue-600 rounded-full font-semibold text-white shadow hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 transition"
+    >
+      RSVP NOW
+    </a>
+  </motion.div>
+</section>
+
 
       {/* ================= INTRO + DETAILS ================= */}
       <section className="px-6 py-20">
@@ -94,8 +106,7 @@ export default function Home() {
               <span className="text-gray-200">Your 2026 Playbook Starts Here</span>
             </h2>
             <p className="text-gray-200/80">
-              Gain insights from brands, creators, and platforms shaping the future of marketing.
-              Leave with a playbook of strategies—from storytelling to performance—to power your 2026 campaigns.
+              Gain insights from brands, creators, and  platforms shaping the future of marketing.  Leave with a playbook of strategies —  from storytelling to performance for you  to power your 2026 campaigns. Event Info Block: ● October 16, 2025 ● Colony @ KL Eco City ● Invite-only.
             </p>
           </motion.div>
 
@@ -134,18 +145,12 @@ export default function Home() {
               The Conversion Playbook:
             </motion.h2>
             <motion.p {...fadeUp} className="text-white/80">
-              Shaping Your 2026 Marketing Plan is an exclusive event for marketing leaders,
-              brand builders, and decision-makers. You’ll hear from brands, platforms, and creators
-              reshaping how marketing connects with people.{" "}
-              <span className="font-semibold text-white">
-                Why Attend · Future-ready insights · Actionable frameworks · Real brand stories ·
-                Meaningful connections
-              </span>
+             “Shaping Your 2026  Marketing Plan is an exclusive event designed for  marketing leaders, brand builders, and  decision-makers. You’ll hear from brands, platforms,  and creators who are reshaping the way marketing  connects with people. The sessions are designed to  inspire bold ideas, share practical strategies, and  spark conversations.” Why Attend ● Future-ready insights ● Actionable frameworks ● Real brand stories ● Meaningful connections
             </motion.p>
           </div>
 
           {/* Image grid */}
-          <div className="grid md:grid-cols-3 gap-6">
+          {/* <div className="grid md:grid-cols-3 gap-6">
             <div className="md:col-span-2 grid grid-rows-2 gap-6">
               <figure className="relative rounded-xl overflow-hidden group shadow-lg">
                 <Image
@@ -205,7 +210,7 @@ export default function Home() {
                 Networking Opportunities
               </figcaption>
             </figure>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -257,50 +262,72 @@ export default function Home() {
       {/* ================= EVENT AGENDA (Timeline UI) ================= */}
       <section className="px-6 py-20">
         <div className="max-w-5xl mx-auto space-y-12">
-          <header className="space-y-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-extrabold">
-              Event Agenda – The Conversion Playbook:{" "}
-              <span className="text-blue-200">Shaping Your 2026 Marketing Plan</span>
-            </h2>
-            <p className="text-white/85">
-              Venue: Colony @ KL Eco City <br />
-              Date: <time dateTime="2025-10-16">16 October 2025</time> <br />
-              Time: 12:30 PM – 5:30 PM <br />
-              Dress Code: Business Casual
-            </p>
-          </header>
+         {/* ===== header (LEFT aligned) ===== */}
+<header className="space-y-4 text-left">
+  <h2 className="text-3xl md:text-4xl font-extrabold">
+    Event Agenda – The Conversion Playbook:{" "}
+    <span className="text-blue-100">Shaping Your 2026 Marketing Plan</span>
+  </h2>
 
-          {/* Objective */}
-          <div className="space-y-3 text-white/80 text-center max-w-3xl mx-auto">
-            <h3 className="text-xl font-semibold text-white">Event Objective</h3>
-            <p>
-              This event brings together leading voices—brands, platforms, and creators—to share
-              insights on the future of marketing. From rebranding journeys and creator-led strategies
-              to programmatic innovation and data-driven storytelling, sessions are designed to spark ideas
-              for building effective, future-ready campaigns.
-            </p>
-            <p>The goal: equip participants with practical strategies for shaping their 2026 plans.</p>
-          </div>
+  <p className="text-white/85">
+    Venue: Colony @ KL Eco City <br />
+    Date: <time dateTime="2025-10-16">16 October 2025</time> <br />
+    Time: 12:30 PM – 5:30 PM <br />
+    Dress Code: Business Casual
+  </p>
+</header>
 
-          {/* Timeline */}
-          <ol className="relative space-y-8">
-            {AGENDA.map((item, i) => (
-              <li
-                key={`${item.title}-${i}`}
-                className="relative pl-10 before:absolute before:left-0 before:top-1.5 before:h-2 before:w-2 before:rounded-full before:bg-blue-300
-                           after:absolute after:left-[3px] after:top-6 after:w-px after:h-[calc(100%-1.5rem)] after:bg-white/15 last:after:hidden"
-              >
-                <div className="inline-block bg-black/25 backdrop-blur-sm px-3 py-1.5 rounded font-mono text-xs md:text-sm text-white/80 mb-3 border border-white/10">
-                  {item.time}
-                </div>
-                <h3 className="text-lg md:text-xl font-bold">{item.title}</h3>
-                <p className="text-white/80 mt-1">{item.desc}</p>
-                {item.speakers && (
-                  <p className="text-sm text-white/70 mt-1 italic">{item.speakers}</p>
-                )}
-              </li>
-            ))}
-          </ol>
+{/* ===== objective (LEFT aligned) ===== */}
+<div className="space-y-3 text-white/80 text-left max-w-3xl">
+  <h3 className="text-xl font-semibold text-white">Event Objective</h3>
+  <p>
+    This event brings together leading voices—brands, platforms, and creators—to share
+    insights on the future of marketing. From rebranding journeys and creator-led strategies
+    to programmatic innovation and data-driven storytelling, sessions are designed to spark ideas
+    for building effective, future-ready campaigns.
+  </p>
+  <p>The goal: equip participants with practical strategies for shaping their 2026 plans.</p>
+</div>
+
+        {/* ===== Agenda (rows with time pill + separators) ===== */}
+<ol className="mt-8 divide-y divide-white/15 border-y border-white/15">
+  {AGENDA.map((item, i) => (
+    <li
+      key={`${item.title}-${i}`}
+      className="py-8 md:grid md:grid-cols-[minmax(160px,220px)_1fr] md:gap-8"
+    >
+      {/* TIME PILL */}
+      <div className="mb-4 md:mb-0">
+        <span
+          className="inline-flex items-center rounded-md border border-white/25 bg-white/5
+                     px-3 py-1.5 font-mono text-xs md:text-sm text-white/85 shadow-inner
+                     backdrop-blur-[1px]"
+          aria-label={`Time: ${item.time}`}
+        >
+          {item.time}
+        </span>
+      </div>
+
+      {/* CONTENT */}
+      <div>
+        <h3 className="text-lg md:text-xl font-semibold text-white">
+          {item.title}
+        </h3>
+
+        <p className="mt-2 text-white/80 leading-relaxed max-w-3xl">
+          {item.desc}
+        </p>
+
+        {item.speakers && (
+          <p className="mt-3 text-sm text-white/60 italic">
+            {item.speakers}
+          </p>
+        )}
+      </div>
+    </li>
+  ))}
+</ol>
+
         </div>
       </section>
 
@@ -343,7 +370,7 @@ export default function Home() {
           <input
             id="firstName" name="firstName" required
             className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            placeholder="Jane"
+            placeholder=" First Name"
           />
         </div>
         <div>
@@ -353,7 +380,7 @@ export default function Home() {
           <input
             id="lastName" name="lastName" required
             className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            placeholder="Doe"
+            placeholder="Last Name"
           />
         </div>
 
@@ -365,7 +392,7 @@ export default function Home() {
           <input
             id="businessEmail" name="businessEmail" type="email" inputMode="email" required autoComplete="email"
             className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            placeholder="you@company.com"
+            placeholder=" Business Email"
           />
         </div>
         <div>
@@ -375,7 +402,7 @@ export default function Home() {
           <input
             id="phone" name="phone" type="tel" inputMode="tel" required autoComplete="tel"
             className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            placeholder="+60 12 345 6789"
+            placeholder="Phone Number"
           />
         </div>
 
@@ -387,7 +414,7 @@ export default function Home() {
           <input
             id="jobTitle" name="jobTitle" required
             className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            placeholder="Marketing Lead"
+            placeholder="Job Title"
           />
         </div>
         <div>
@@ -397,7 +424,7 @@ export default function Home() {
           <input
             id="companyName" name="companyName" required autoComplete="organization"
             className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            placeholder="Acme Sdn Bhd"
+            placeholder="Company Name"
           />
         </div>
 
@@ -469,26 +496,58 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Checkboxes */}
-      <div className="mt-6 space-y-3">
-        <label className="flex items-start gap-3">
-          <input type="checkbox" name="agreeTerms" required className="mt-1.5 h-4 w-4 accent-blue-500" />
-          <span className="text-sm">
-            Yes, I have read and accepted the <span className="underline decoration-white/50">Event Terms and Conditions</span>.
-          </span>
-        </label>
+    {/* Checkboxes (uniform size 20x20) */}
+<div className="mt-6 space-y-4">
+  {/* Terms (required) */}
+  <label htmlFor="agreeTerms" className="flex items-start gap-3 cursor-pointer select-none">
+    <input id="agreeTerms" name="agreeTerms" type="checkbox" required className="peer sr-only" />
+    <span
+      aria-hidden
+      className="mt-0.5 inline-flex h-5 w-5 flex-none items-center justify-center rounded-[4px]
+                 border border-white/25 bg-white/10
+                 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-blue-400
+                 peer-checked:bg-blue-600 peer-checked:border-blue-600"
+    >
+      <svg
+        viewBox="0 0 20 20"
+        className="h-3.5 w-3.5 text-white opacity-0 transition-opacity duration-150 peer-checked:opacity-100"
+      >
+        <path d="M5 10l3 3 7-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+    <span className="text-sm leading-snug">
+      Yes, I have read and accepted the <span className="underline decoration-white/50">Event Terms and Conditions</span>.
+    </span>
+  </label>
 
-        <label className="flex items-start gap-3">
-          <input type="checkbox" name="agreeComms" className="mt-1.5 h-4 w-4 accent-blue-500" />
-          <span className="text-sm">
-            Yes, I would like to receive communications. I understand that I can opt out at any time.
-          </span>
-        </label>
+  {/* Comms (optional) */}
+  <label htmlFor="agreeComms" className="flex items-start gap-3 cursor-pointer select-none">
+    <input id="agreeComms" name="agreeComms" type="checkbox" className="peer sr-only" />
+    <span
+      aria-hidden
+      className="mt-0.5 inline-flex h-5 w-5 flex-none items-center justify-center rounded-[4px]
+                 border border-white/25 bg-white/10
+                 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-blue-400
+                 peer-checked:bg-blue-600 peer-checked:border-blue-600"
+    >
+      <svg
+        viewBox="0 0 20 20"
+        className="h-3.5 w-3.5 text-white opacity-0 transition-opacity duration-150 peer-checked:opacity-100"
+      >
+        <path d="M5 10l3 3 7-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+    <span className="text-sm leading-snug">
+      Yes, I would like to receive communications. I understand that I can opt out at any time.
+    </span>
+  </label>
 
-        <p className="text-xs text-white/70">
-          Submitting this form does not guarantee acceptance. An official confirmation will be sent once approved.
-        </p>
-      </div>
+  <p className="text-xs text-white/70 leading-snug">
+    Submitting this form does not guarantee acceptance. An official confirmation will be sent once approved.
+  </p>
+</div>
+
+
 
       {/* CTA */}
       <div className="mt-6">
