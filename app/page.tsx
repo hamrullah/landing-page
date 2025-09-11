@@ -16,6 +16,7 @@ import {
 } from "react-icons/fa6";
 import { CircularTestimonials } from "./components/ui/circular-testimonials";
 import { Changelog1 } from "./components/ui/changelog-1";
+import { Component as SignInCard } from "./components/ui/sign-in-card-2";
 
 /* Fonts */
 const poppins = Poppins({
@@ -298,298 +299,38 @@ export default function Home() {
           </div>
 
           <Changelog1
-              title=""
-              description=""
+              title="Event Agenda"
+              description="Shaping Your 2026 Marketing Plan"
               entries={AGENDA_ENTRIES}
             />
         </div>
       </section>
 
-      {/* ================= REGISTRATION ================= */}
-      <section id="register" className="px-6 py-24">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
-          {/* Left info panel */}
-          <aside className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-2xl p-8 space-y-6">
-            <h2 className="text-3xl font-extrabold leading-tight">Registration is now open!</h2>
-            <p className="text-white/80">
-              Spaces are limited, please register as soon as possible to reserve your spot.
-            </p>
+    {/* ================= REGISTRATION ================= */}
+<section id="register" className="px-6 py-24">
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
+    {/* Left info panel */}
+    <aside className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-2xl p-8 space-y-6">
+      <h2 className="text-3xl font-extrabold leading-tight">Registration is now open!</h2>
+      <p className="text-white/80">
+        Spaces are limited, please register as soon as possible to reserve your spot.
+      </p>
 
-            <div className="flex items-start gap-3 rounded-xl bg-black/40 border border-white/10 p-4">
-              <AlertCircle className="w-5 h-5 mt-0.5 text-white/80" aria-hidden="true" />
-              <p className="text-sm text-white/80">
-                Please disable any ad blockers to successfully submit this form.
-              </p>
-            </div>
-          </aside>
+      <div className="flex items-start gap-3 rounded-xl bg-black/40 border border-white/10 p-4">
+        <AlertCircle className="w-5 h-5 mt-0.5 text-white/80" aria-hidden="true" />
+        <p className="text-sm text-white/80">
+          Please disable any ad blockers to successfully submit this form.
+        </p>
+      </div>
+    </aside>
 
-          {/* Right form */}
-          <form
-            className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
-            onSubmit={(e) => {
-              e.preventDefault();
-              const form = e.currentTarget as HTMLFormElement;
-              const data = Object.fromEntries(new FormData(form).entries());
-              alert(`Thanks! We received your registration:\n${JSON.stringify(data, null, 2)}`);
-              form.reset();
-            }}
-            noValidate
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {/* First / Last */}
-              <div>
-                <label htmlFor="firstName" className="block text-sm font-medium mb-1">
-                  First Name<span className="text-blue-300 ml-1" aria-hidden>
-                    *
-                  </span>
-                </label>
-                <input
-                  id="firstName"
-                  name="firstName"
-                  required
-                  className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  placeholder="First Name"
-                />
-              </div>
-              <div>
-                <label htmlFor="lastName" className="block text-sm font-medium mb-1">
-                  Last Name<span className="text-blue-300 ml-1" aria-hidden>
-                    *
-                  </span>
-                </label>
-                <input
-                  id="lastName"
-                  name="lastName"
-                  required
-                  className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  placeholder="Last Name"
-                />
-              </div>
+    {/* Right panel: pakai komponen sign-in-card-2 */}
+    <div className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-2xl p-0 overflow-hidden self-stretch">
+      <SignInCard />
+    </div>
+  </div>
+</section>
 
-              {/* Email / Phone */}
-              <div>
-                <label htmlFor="businessEmail" className="block text-sm font-medium mb-1">
-                  Business Email<span className="text-blue-300 ml-1" aria-hidden>
-                    *
-                  </span>
-                </label>
-                <input
-                  id="businessEmail"
-                  name="businessEmail"
-                  type="email"
-                  inputMode="email"
-                  required
-                  autoComplete="email"
-                  className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  placeholder="you@company.com"
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium mb-1">
-                  Phone Number<span className="text-blue-300 ml-1" aria-hidden>
-                    *
-                  </span>
-                </label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  inputMode="tel"
-                  required
-                  autoComplete="tel"
-                  className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  placeholder="+60 12 345 6789"
-                />
-              </div>
-
-              {/* Job Title / Company Name */}
-              <div>
-                <label htmlFor="jobTitle" className="block text-sm font-medium mb-1">
-                  Job Title<span className="text-blue-300 ml-1" aria-hidden>
-                    *
-                  </span>
-                </label>
-                <input
-                  id="jobTitle"
-                  name="jobTitle"
-                  required
-                  className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  placeholder="Marketing Lead"
-                />
-              </div>
-              <div>
-                <label htmlFor="companyName" className="block text-sm font-medium mb-1">
-                  Company Name<span className="text-blue-300 ml-1" aria-hidden>
-                    *
-                  </span>
-                </label>
-                <input
-                  id="companyName"
-                  name="companyName"
-                  required
-                  autoComplete="organization"
-                  className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  placeholder="Acme Sdn Bhd"
-                />
-              </div>
-
-              {/* Country */}
-              <div className="md:col-span-2">
-                <label htmlFor="companyCountry" className="block text-sm font-medium mb-1">
-                  Company Country
-                </label>
-                <select
-                  id="companyCountry"
-                  name="companyCountry"
-                  defaultValue=""
-                  className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                >
-                  <option value="" disabled>
-                    Select a country
-                  </option>
-                  <option>Malaysia</option>
-                  <option>Singapore</option>
-                  <option>Indonesia</option>
-                  <option>Thailand</option>
-                  <option>Philippines</option>
-                  <option>Vietnam</option>
-                  <option>Other</option>
-                </select>
-              </div>
-
-              {/* Company Type / Size */}
-              <div>
-                <label htmlFor="companyType" className="block text-sm font-medium mb-1">
-                  Company Type
-                </label>
-                <select
-                  id="companyType"
-                  name="companyType"
-                  defaultValue=""
-                  className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                >
-                  <option value="" disabled>
-                    Select type
-                  </option>
-                  <option>Brand / Advertiser</option>
-                  <option>Agency</option>
-                  <option>Tech / Platform</option>
-                  <option>Publisher</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor="companySize" className="block text-sm font-medium mb-1">
-                  Company Size
-                </label>
-                <select
-                  id="companySize"
-                  name="companySize"
-                  defaultValue=""
-                  className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                >
-                  <option value="" disabled>
-                    Select size
-                  </option>
-                  <option>1–10</option>
-                  <option>11–50</option>
-                  <option>51–200</option>
-                  <option>201–500</option>
-                  <option>501–1000</option>
-                  <option>1000+</option>
-                </select>
-              </div>
-
-              {/* Dietary restrictions */}
-              <div className="md:col-span-2">
-                <label htmlFor="dietary" className="block text-sm font-medium mb-1">
-                  Do you have any dietary restrictions?
-                </label>
-                <textarea
-                  id="dietary"
-                  name="dietary"
-                  rows={3}
-                  className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  placeholder="e.g., vegetarian, no nuts"
-                />
-              </div>
-            </div>
-
-            {/* Checkboxes */}
-            <div className="mt-6 space-y-4">
-              <label htmlFor="agreeTerms" className="flex items-start gap-3 cursor-pointer select-none">
-                <input id="agreeTerms" name="agreeTerms" type="checkbox" required className="peer sr-only" />
-                <span
-                  aria-hidden
-                  className="mt-0.5 inline-flex h-5 w-5 flex-none items-center justify-center rounded-[4px]
-                             border border-white/25 bg-white/10
-                             peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-blue-400
-                             peer-checked:bg-blue-600 peer-checked:border-blue-600"
-                >
-                  <svg
-                    viewBox="0 0 20 20"
-                    className="h-3.5 w-3.5 text-white opacity-0 transition-opacity duration-150 peer-checked:opacity-100"
-                  >
-                    <path
-                      d="M5 10l3 3 7-7"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-                <span className="text-sm leading-snug">
-                  Yes, I have read and accepted the{" "}
-                  <span className="underline decoration-white/50">Event Terms and Conditions</span>.
-                </span>
-              </label>
-
-              <label htmlFor="agreeComms" className="flex items-start gap-3 cursor-pointer select-none">
-                <input id="agreeComms" name="agreeComms" type="checkbox" className="peer sr-only" />
-                <span
-                  aria-hidden
-                  className="mt-0.5 inline-flex h-5 w-5 flex-none items-center justify-center rounded-[4px]
-                             border border-white/25 bg-white/10
-                             peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-blue-400
-                             peer-checked:bg-blue-600 peer-checked:border-blue-600"
-                >
-                  <svg
-                    viewBox="0 0 20 20"
-                    className="h-3.5 w-3.5 text-white opacity-0 transition-opacity duration-150 peer-checked:opacity-100"
-                  >
-                    <path
-                      d="M5 10l3 3 7-7"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-                <span className="text-sm leading-snug">
-                  Yes, I would like to receive communications. I understand that I can opt out at any time.
-                </span>
-              </label>
-
-              <p className="text-xs text-white/70 leading-snug">
-                Submitting this form does not guarantee acceptance. An official confirmation will be sent once approved.
-              </p>
-            </div>
-
-            <div className="mt-6">
-              <button
-                type="submit"
-                className="w-full py-3 px-6 bg-blue-600 hover:bg-blue-700 rounded-full font-semibold shadow transition focus-visible:ring-2 focus-visible:ring-blue-300"
-              >
-                Request Your Seat
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
 
       {/* ================= FOOTER / CTA ================= */}
       <footer id="contact" className="px-6 py-24">
