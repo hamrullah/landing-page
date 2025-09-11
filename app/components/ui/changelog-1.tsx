@@ -1,110 +1,165 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import clsx from "clsx";
 
+/* ---- Types ---- */
 export type ChangelogEntry = {
-  version: string;           // di agenda = time
-  date?: string;             // tanggal acara (opsional)
-  title: string;             // judul sesi
-  description?: string;      // deskripsi sesi
-  items?: string[];          // bullet (mis. speakers)
-  image?: string;            // opsional
-  button?: { url: string; text: string }; // opsional
+  /** Dipakai untuk jam (badge kecil di kartu) */
+  version?: string;
+  /** Ditampilkan di kolom kiri */
+  date?: string;
+  /** Judul kartu */
+  title: string;
+  /** Deskripsi singkat */
+  description?: string;
+  /** Opsional: list item kecil di bawah */
+  items?: string[];
+  /** Opsional: tombol */
+  button?: { url: string; text: string };
 };
 
+export type Changelog1Props = {
+  title?: string;
+  description?: string;
+  /** Data agenda/changelog */
+  entries: ChangelogEntry[];
+  /** Palet warna kartu */
+  colorMode?: "light" | "dark";
+  className?: string;
+};
+
+/* ---- Component ---- */
 export function Changelog1({
   title,
   description,
   entries,
-}: {
-  title: string;
-  description?: string;
-  entries: ChangelogEntry[];
-}) {
+  colorMode = "light",
+  className,
+}: Changelog1Props) {
+  const isLight = colorMode === "light";
+
   return (
-    <section className="w-full">
-      <div className="mx-auto max-w-5xl">
-        <header className="mb-10 space-y-3">
-          <h2 className="text-3xl md:text-4xl font-extrabold">{title}</h2>
-          {description ? (
-            <p className="text-white/85 max-w-3xl">{description}</p>
-          ) : null}
+    <section className={clsx("w-full", className)}>
+      {(title || description) && (
+        <header className={clsx(isLight ? "text-neutral-900" : "text-white", "mb-8")}>
+          {title && (
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">
+              {title}
+            </h2>
+          )}
+          {description && (
+            <p className={clsx("mt-2 max-w-2xl",
+              isLight ? "text-neutral-600" : "text-white/80"
+            )}>
+              {description}
+            </p>
+          )}
         </header>
+      )}
 
-        <ol className="relative border-s border-white/20 pl-6 space-y-10">
-          {entries.map((e, i) => (
-            <li key={i} className="relative">
-              {/* dot */}
-              <span className="absolute -left-[9px] top-1 inline-block h-4 w-4 rounded-full bg-blue-500 ring-4 ring-blue-500/20" />
+      <ol className="relative space-y-10">
+        {entries.map((e, i) => (
+          <li
+            key={`${e.title}-${i}`}
+            className="relative grid grid-cols-1 md:grid-cols-[170px_1fr] gap-6 md:gap-10"
+          >
+            {/* timeline dot */}
+            <span
+              aria-hidden
+              className={clsx(
+                "absolute -left-2 top-2 h-3 w-3 rounded-full",
+                isLight ? "bg-blue-500 ring-4 ring-white" : "bg-blue-300/90 ring-4 ring-white/10"
+              )}
+            />
+            {/* Optional vertical line (subtle) */}
+            <span
+              aria-hidden
+              className={clsx(
+                "hidden md:block absolute left-0 top-8 -bottom-8 w-px",
+                isLight ? "bg-neutral-200" : "bg-white/15"
+              )}
+            />
 
-              <motion.article
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                className="rounded-xl border border-white/15 bg-white/5 p-5 shadow-lg"
-              >
-                {/* Header row */}
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
-                  <span className="inline-flex items-center rounded-md border border-white/25 bg-white/10 px-2.5 py-1 font-mono">
-                    {e.version}
-                  </span>
-                  {e.date ? (
-                    <time className="text-white/70">{e.date}</time>
-                  ) : null}
+            {/* Left: Date */}
+            <div className="pl-6 md:pl-0">
+              {e.date && (
+                <div className={clsx(
+                  "text-sm font-semibold",
+                  isLight ? "text-neutral-500" : "text-white/70"
+                )}>
+                  {e.date}
                 </div>
+              )}
+            </div>
 
-                <h3 className="mt-3 text-xl font-bold">{e.title}</h3>
+            {/* Right: Card */}
+            <div
+              className={clsx(
+                "rounded-2xl p-6 md:p-8 shadow-sm",
+                isLight
+                  ? "bg-white text-neutral-900 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
+                  : "bg-white/10 text-white backdrop-blur border border-white/10"
+              )}
+            >
+              {/* time badge */}
+              {e.version && (
+                <span
+                  className={clsx(
+                    "inline-flex items-center rounded-md px-3 py-1 text-xs font-medium tracking-wide",
+                    isLight
+                      ? "bg-neutral-100 text-neutral-700"
+                      : "bg-white/10 text-white/85"
+                  )}
+                >
+                  {e.version}
+                </span>
+              )}
 
-                {e.description ? (
-                  <p className="mt-2 text-white/80 leading-relaxed">
-                    {e.description}
-                  </p>
-                ) : null}
+              <h3 className="mt-3 text-2xl md:text-3xl font-extrabold">
+                {e.title}
+              </h3>
 
-                {e.items && e.items.length > 0 ? (
-                  <ul className="mt-3 list-disc space-y-1 pl-5 text-white/85">
-                    {e.items.map((it, idx) => (
-                      <li key={idx}>{it}</li>
-                    ))}
-                  </ul>
-                ) : null}
+              {e.description && (
+                <p
+                  className={clsx(
+                    "mt-3 text-lg leading-relaxed",
+                    isLight ? "text-neutral-600" : "text-white/85"
+                  )}
+                >
+                  {e.description}
+                </p>
+              )}
 
-                {/* Media / CTA */}
-                {(e.image || e.button) && (
-                  <div className="mt-4 flex flex-wrap items-center gap-4">
-                    {e.image ? (
-                      <div className="overflow-hidden rounded-lg border border-white/15">
-                        {/* gunakan Image jika dari domain remote sudah diizinkan di next.config */}
-                        <Image
-                          src={e.image}
-                          alt=""
-                          width={560}
-                          height={315}
-                          className="h-40 w-[280px] object-cover sm:h-44 sm:w-[420px]"
-                        />
-                      </div>
-                    ) : null}
+              {e.items && e.items.length > 0 && (
+                <ul className={clsx("mt-3 space-y-1.5",
+                  isLight ? "text-neutral-500" : "text-white/70"
+                )}>
+                  {e.items.map((it, idx) => (
+                    <li key={idx} className="text-sm italic">• {it}</li>
+                  ))}
+                </ul>
+              )}
 
-                    {e.button ? (
-                      <a
-                        href={e.button.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold shadow hover:bg-blue-700 focus-visible:ring-2 focus-visible:ring-blue-300 transition"
-                      >
-                        {e.button.text}
-                      </a>
-                    ) : null}
-                  </div>
-                )}
-              </motion.article>
-            </li>
-          ))}
-        </ol>
-      </div>
+              {e.button && (
+                <a
+                  href={e.button.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={clsx(
+                    "mt-5 inline-block rounded-full px-5 py-2 text-sm font-semibold transition",
+                    isLight
+                      ? "bg-neutral-900 text-white hover:bg-neutral-800"
+                      : "bg-white/90 text-neutral-900 hover:bg-white"
+                  )}
+                >
+                  {e.button.text}
+                </a>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }

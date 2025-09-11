@@ -329,10 +329,11 @@ export default function Home() {
           </div>
 
           <Changelog1
-              title="Event Agenda"
-              description="Shaping Your 2026 Marketing Plan"
-              entries={AGENDA_ENTRIES}
-            />
+  title="Event Agenda"
+  description="Network session on 16 October 2025."
+  entries={AGENDA_ENTRIES}
+  colorMode="light"   // <- supaya kartu putih, teks gelap
+/>
         </div>
       </section>
 
