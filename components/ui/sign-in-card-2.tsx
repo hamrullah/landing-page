@@ -381,7 +381,6 @@ export function Component() {
                           placeholder="Email address"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          onFocus={() => setFocusedInput("email" as any)}
                           onBlur={() => setFocusedInput(null)}
                           className="w-full bg-white/5 border-transparent focus:border-white/20 text-white placeholder:text-white/30 h-10 transition-all duration-300 pl-10 pr-3 focus:bg-white/10"
                         />
@@ -419,7 +418,6 @@ export function Component() {
                           placeholder="Password"
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
-                          onFocus={() => setFocusedInput("password" as any)}
                           onBlur={() => setFocusedInput(null)}
                           className="w-full bg-white/5 border-transparent focus:border-white/20 text-white placeholder:text-white/30 h-10 transition-all duration-300 pl-10 pr-10 focus:bg-white/10"
                         />
@@ -596,9 +594,9 @@ export function Component() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
                 >
-                  Don't have an account?{' '}
+                  Don&apos;t have an account?
                   <Link 
-                    href="/signup" 
+                    href="#" 
                     className="relative inline-block group/signup"
                   >
                     <span className="relative z-10 text-white group-hover/signup:text-white/70 transition-colors duration-300 font-medium">

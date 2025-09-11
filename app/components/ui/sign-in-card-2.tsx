@@ -3,11 +3,8 @@
 import * as React from "react";
 
 type Props = {
-  /** Optional: handle submit sendiri di parent */
   onSubmit?: (data: Record<string, FormDataEntryValue>) => void;
-  /** Optional: judul di header kartu */
   title?: string;
-  /** Optional: subjudul kecil */
   subtitle?: string;
 };
 
@@ -21,7 +18,7 @@ export function Component({
     const form = e.currentTarget;
     const data = Object.fromEntries(
       new FormData(form).entries()
-    ) as Record<string, FormDataEntryValue>; // ← ketik hasil fromEntries
+    ) as Record<string, FormDataEntryValue>;
 
     if (onSubmit) {
       onSubmit(data);
@@ -34,16 +31,13 @@ export function Component({
   return (
     <div className="w-full">
       <div className="rounded-2xl border border-white/10 bg-black/30 backdrop-blur-sm p-6 md:p-8">
-        {/* Header */}
         <div className="mb-6">
           <h3 className="text-2xl md:text-3xl font-extrabold leading-tight">{title}</h3>
           {subtitle ? <p className="mt-2 text-white/80">{subtitle}</p> : null}
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} noValidate>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {/* First / Last */}
             <div>
               <label htmlFor="firstName" className="block text-sm font-medium mb-1">
                 First Name<span className="text-blue-300 ml-1" aria-hidden="true">*</span>
@@ -69,7 +63,6 @@ export function Component({
               />
             </div>
 
-            {/* Email / Phone */}
             <div>
               <label htmlFor="businessEmail" className="block text-sm font-medium mb-1">
                 Business Email<span className="text-blue-300 ml-1" aria-hidden="true">*</span>
@@ -101,7 +94,6 @@ export function Component({
               />
             </div>
 
-            {/* Job Title / Company Name */}
             <div>
               <label htmlFor="jobTitle" className="block text-sm font-medium mb-1">
                 Job Title<span className="text-blue-300 ml-1" aria-hidden="true">*</span>
@@ -128,7 +120,6 @@ export function Component({
               />
             </div>
 
-            {/* Country (full) */}
             <div className="md:col-span-2">
               <label htmlFor="companyCountry" className="block text-sm font-medium mb-1">
                 Company Country
@@ -152,7 +143,6 @@ export function Component({
               </select>
             </div>
 
-            {/* Company Type / Size */}
             <div>
               <label htmlFor="companyType" className="block text-sm font-medium mb-1">
                 Company Type
@@ -195,7 +185,6 @@ export function Component({
               </select>
             </div>
 
-            {/* Dietary restrictions */}
             <div className="md:col-span-2">
               <label htmlFor="dietary" className="block text-sm font-medium mb-1">
                 Do you have any dietary restrictions?
@@ -210,13 +199,8 @@ export function Component({
             </div>
           </div>
 
-          {/* Checkboxes (custom) */}
           <div className="mt-6 space-y-4">
-            {/* Terms (required) */}
-            <label
-              htmlFor="agreeTerms"
-              className="flex items-start gap-3 cursor-pointer select-none"
-            >
+            <label htmlFor="agreeTerms" className="flex items-start gap-3 cursor-pointer select-none">
               <input id="agreeTerms" name="agreeTerms" type="checkbox" required className="peer sr-only" />
               <span
                 aria-hidden
@@ -225,18 +209,8 @@ export function Component({
                            peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-blue-400
                            peer-checked:bg-blue-600 peer-checked:border-blue-600"
               >
-                <svg
-                  viewBox="0 0 20 20"
-                  className="h-3.5 w-3.5 text-white opacity-0 transition-opacity duration-150 peer-checked:opacity-100"
-                >
-                  <path
-                    d="M5 10l3 3 7-7"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+                <svg viewBox="0 0 20 20" className="h-3.5 w-3.5 text-white opacity-0 transition-opacity duration-150 peer-checked:opacity-100">
+                  <path d="M5 10l3 3 7-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
               <span className="text-sm leading-snug">
@@ -245,11 +219,7 @@ export function Component({
               </span>
             </label>
 
-            {/* Comms (optional) */}
-            <label
-              htmlFor="agreeComms"
-              className="flex items-start gap-3 cursor-pointer select-none"
-            >
+            <label htmlFor="agreeComms" className="flex items-start gap-3 cursor-pointer select-none">
               <input id="agreeComms" name="agreeComms" type="checkbox" className="peer sr-only" />
               <span
                 aria-hidden
@@ -258,18 +228,8 @@ export function Component({
                            peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-blue-400
                            peer-checked:bg-blue-600 peer-checked:border-blue-600"
               >
-                <svg
-                  viewBox="0 0 20 20"
-                  className="h-3.5 w-3.5 text-white opacity-0 transition-opacity duration-150 peer-checked:opacity-100"
-                >
-                  <path
-                    d="M5 10l3 3 7-7"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+                <svg viewBox="0 0 20 20" className="h-3.5 w-3.5 text-white opacity-0 transition-opacity duration-150 peer-checked:opacity-100">
+                  <path d="M5 10l3 3 7-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
               <span className="text-sm leading-snug">
@@ -282,7 +242,6 @@ export function Component({
             </p>
           </div>
 
-          {/* CTA */}
           <div className="mt-6">
             <button
               type="submit"
