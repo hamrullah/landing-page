@@ -2,9 +2,18 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, MapPin, Mail,AlertCircle  } from "lucide-react";
+import { Calendar, MapPin, Mail,AlertCircle, ArrowRight  } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Poppins } from "next/font/google";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaXTwitter,
+  FaTiktok,
+  FaBehance,
+  FaYoutube,
+} from "react-icons/fa6";
 
 /* Fonts */
 const poppins = Poppins({
@@ -26,8 +35,8 @@ const SPEAKERS = [
 
 const AGENDA = [
   { time: "12:30 – 1:15 PM", title: "Registration & Networking Lunch", desc: "Guest arrivals with light bites and canapés, informal networking." },
-  { time: "1:15 – 1:20 PM", title: "Welcome by Emcee", desc: "Overview of the day’s objective: converting awareness into measurable impact." },
-  { time: "1:20 – 1:25 PM", title: "CEO Opening Keynote – Keem", desc: "Why this conversation matters for brands moving into 2026.", speakers: "Keem, CEO" },
+  { time: "1:15 – 1:20 PM", title: "Welcome by Emcee", desc: "Emcee introduction, overview of the day’s objective :Exploring strategies that convert awareness into measurable impact" },
+  { time: "1:20 – 1:25 PM", title: "CEO Opening Keynote – Keem", desc: "Welcome address and quick introduction Setting the tone: Why this conversation matters for brands moving into 2026.", speakers: "Keem, CEO" },
   { time: "1:25 – 1:45 PM", title: "Julie’s: Rebranding that Converts Perceptions into Loyalty", desc: "How Julie’s repositioned its brand to build trust and long-term consumer connection.", speakers: "Julie’s Marketing Team" },
   { time: "1:45 – 2:05 PM", title: "PayNet: Shaping Everyday Behaviour", desc: "Turning innovative solutions into daily habits that feel natural and intuitive.", speakers: "PayNet Representative" },
   { time: "2:05 – 2:25 PM", title: "Richard Ker: The Creator’s Edge", desc: "Why authentic, creator-driven narratives strengthen brand advocacy.", speakers: "Richard Ker" },
@@ -59,8 +68,8 @@ export default function Home() {
       radial-gradient(700px 520px at 98% 12%, rgba(255, 216, 206, 0.85), transparent 55%),
       /* gradasi utama kiri→kanan */
       linear-gradient(90deg,
-        #5A2BD8 0%,
-        #6B3BE1 30%,
+        #9473edff 4%,
+        #9980d7ff 30%,
         #9B72D7 60%,
         #FFD3C8 100%
       )
@@ -151,72 +160,10 @@ export default function Home() {
               The Conversion Playbook:
             </motion.h2>
             <motion.p {...fadeUp} className="text-white/80">
-             “Shaping Your 2026  Marketing Plan is an exclusive event designed for  marketing leaders, brand builders, and  decision-makers. You’ll hear from brands, platforms,  and creators who are reshaping the way marketing  connects with people. The sessions are designed to  inspire bold ideas, share practical strategies, and  spark conversations.” Why Attend ● Future-ready insights ● Actionable frameworks ● Real brand stories ● Meaningful connections
+             Shaping Your 2026  Marketing Plan is an exclusive event designed for  marketing leaders, brand builders, and  decision-makers. You’ll hear from brands, platforms,  and creators who are reshaping the way marketing  connects with people. The sessions are designed to  inspire bold ideas, share practical strategies, and  spark conversations. Why Attend ● Future-ready insights ● Actionable frameworks ● Real brand stories ● Meaningful connections
             </motion.p>
           </div>
 
-          {/* Image grid */}
-          {/* <div className="grid md:grid-cols-3 gap-6">
-            <div className="md:col-span-2 grid grid-rows-2 gap-6">
-              <figure className="relative rounded-xl overflow-hidden group shadow-lg">
-                <Image
-                  src="/attend1.jpg"
-                  alt="Conference keynote session with attendees"
-                  width={1200} height={700}
-                  sizes="(min-width: 1024px) 800px, 100vw"
-                  className="object-cover w-full h-60 md:h-full transition-transform duration-500 group-hover:scale-105"
-                  priority
-                />
-                <figcaption className="absolute bottom-4 left-4 text-lg font-semibold">
-                  Inspiring Keynotes
-                </figcaption>
-              </figure>
-
-              <div className="grid grid-cols-2 gap-6">
-                <figure className="relative rounded-xl overflow-hidden group shadow-lg">
-                  <Image
-                    src="/attend2.jpg"
-                    alt="Attendees taking notes during a session"
-                    width={500} height={400}
-                    sizes="(min-width: 1024px) 400px, 50vw"
-                    className="object-cover w-full h-40 md:h-full transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <figcaption className="absolute bottom-3 left-3 text-sm md:text-base font-semibold">
-                    Insightful Takeaways
-                  </figcaption>
-                </figure>
-
-                <figure className="relative rounded-xl overflow-hidden group shadow-lg">
-                  <Image
-                    src="/attend3.jpg"
-                    alt="Panel speakers on stage"
-                    width={600} height={400}
-                    sizes="(min-width: 1024px) 400px, 50vw"
-                    className="object-cover w-full h-40 md:h-full transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <figcaption className="absolute bottom-3 left-3 text-sm md:text-base font-semibold">
-                    Thought-Provoking Panels
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-
-            <figure className="relative rounded-xl overflow-hidden group shadow-lg md:row-span-2">
-              <Image
-                src="/attend4.jpg"
-                alt="Professionals connecting during networking"
-                width={900} height={1200}
-                sizes="(min-width: 1024px) 400px, 100vw"
-                className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <figcaption className="absolute bottom-4 left-4 text-lg font-semibold">
-                Networking Opportunities
-              </figcaption>
-            </figure>
-          </div> */}
         </div>
       </section>
 
@@ -287,14 +234,13 @@ export default function Home() {
 <div className="space-y-3 text-white/80 text-left max-w-3xl">
   <h3 className="text-xl font-semibold text-white">Event Objective</h3>
   <p>
-    This event brings together leading voices—brands, platforms, and creators—to share
+    This event brings together leading voices brands, platforms, and creators to share
     insights on the future of marketing. From rebranding journeys and creator-led strategies
     to programmatic innovation and data-driven storytelling, sessions are designed to spark ideas
     for building effective, future-ready campaigns.
+    The goal is to equip participants with fresh perspectives, practical strategies, and inspiration for shaping their 2026 marketing plans.
   </p>
-  <p>The goal: equip participants with practical strategies for shaping their 2026 plans.</p>
 </div>
-
         {/* ===== Agenda (rows with time pill + separators) ===== */}
 <ol className="mt-8 divide-y divide-white/15 border-y border-white/15">
   {AGENDA.map((item, i) => (
@@ -567,6 +513,123 @@ export default function Home() {
     </form>
   </div>
 </section>
+
+{/* ================= FOOTER / CTA ================= */}
+<footer id="contact" className="px-6 py-24">
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+    {/* LEFT: Headline + CTA + contact */}
+    <div className="space-y-8">
+      <h2 className="text-5xl md:text-7xl font-extrabold leading-[0.95]">
+        <span className="bg-gradient-to-r from-purple-800 via-purple-600 to-purple-800 bg-clip-text text-transparent">
+          LET’S WORK
+        </span>
+        <br />
+        <span className="bg-gradient-to-r from-purple-500 to-purple-800 bg-clip-text text-transparent">
+          TOGETHER
+        </span>
+      </h2>
+
+      <p className="text-xl md:text-2xl text-black/80">
+        Got an <span className="font-semibold">Idea</span>? Need a <span className="font-semibold">Strategy</span>?
+      </p>
+
+      {/* CTA button */}
+      <a
+        href="mailto:worktogether@kredencecs.com"
+        className="inline-flex items-center justify-center rounded-full px-8 py-4 text-white font-semibold
+                   bg-gradient-to-r from-pink-300 via-purple-500 to-purple-700
+                   shadow-[0_8px_24px_rgba(0,0,0,0.25)] ring-1 ring-white/30 hover:brightness-105 transition"
+      >
+        Let’s make it happen.
+      </a>
+
+      {/* Contact details */}
+      <div className="space-y-3 text-black/80 text-sm md:text-base">
+        <p>2025 © All rights reserved. Kredence Creative Solutions Sdn Bhd</p>
+        <p>
+          Unit 16–01, Menara MBMR, 1, Jalan Syed Putra, 58000<br />
+          Kuala Lumpur
+        </p>
+        <p>
+          +6018-203 8817<br />
+          worktogether@kredencecs.com
+        </p>
+      </div>
+    </div>
+
+    {/* RIGHT: Subscribe card */}
+    <div className="md:justify-self-end w-full max-w-[520px]">
+      <div
+        className="rounded-3xl border border-white/30 bg-white/50 backdrop-blur-xl p-8
+                   shadow-[0_20px_60px_rgba(0,0,0,0.25)]"
+      >
+        <h3 className="text-2xl font-extrabold text-purple-800">Stay Ahead with KCS</h3>
+        <p className="mt-3 text-black/80">
+          Subscribe to Kredence Creative Solutions for the latest insights, strategies, and trends in digital
+          marketing. Let’s shape the future of marketing together!
+        </p>
+
+        <form
+          className="mt-6 flex items-center gap-3"
+          onSubmit={(e) => {
+            e.preventDefault();
+            const data = Object.fromEntries(new FormData(e.currentTarget as HTMLFormElement).entries());
+            alert(`Subscribed:\n${JSON.stringify(data, null, 2)}`);
+            (e.currentTarget as HTMLFormElement).reset();
+          }}
+        >
+          <div className="relative flex-1">
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Enter your email address"
+              className="w-full rounded-full border border-black/20 bg-white/70 px-5 py-3 pr-14
+                         placeholder-black/50 focus:outline-none focus:ring-2 focus:ring-purple-400"
+            />
+            {/* round arrow button inside input on mobile? keep separate for accessibility */}
+          </div>
+          <button
+            type="submit"
+            aria-label="Subscribe"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-black/20
+                       bg-white shadow hover:bg-white/90 transition"
+          >
+            <ArrowRight className="h-5 w-5 text-purple-800" />
+          </button>
+        </form>
+      </div>
+
+      {/* Social icons */}
+      <ul className="mt-10 flex flex-wrap gap-3 md:justify-end">
+  {[
+    { href: "#", label: "Facebook", Icon: FaFacebookF },
+    { href: "#", label: "Instagram", Icon: FaInstagram },
+    { href: "#", label: "LinkedIn", Icon: FaLinkedinIn },
+    { href: "#", label: "X", Icon: FaXTwitter },
+    { href: "#", label: "TikTok", Icon: FaTiktok },
+    { href: "#", label: "Behance", Icon: FaBehance },
+    { href: "#", label: "YouTube", Icon: FaYoutube },
+  ].map(({ href, label, Icon }, i) => (
+    <li key={i}>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={label}
+        className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-black text-white shadow
+                   hover:opacity-90 focus-visible:ring-2 focus-visible:ring-purple-400 transition"
+        title={label}
+      >
+        <Icon className="h-5 w-5" />
+      </a>
+    </li>
+  ))}
+</ul>
+    </div>
+  </div>
+</footer>
+
 
     </main>
   );
