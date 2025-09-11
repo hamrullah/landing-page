@@ -17,6 +17,8 @@ import {
 import { CircularTestimonials } from "./components/ui/circular-testimonials";
 import { Changelog1 } from "./components/ui/changelog-1";
 import { Component as SignInCard } from "./components/ui/sign-in-card-2";
+import { RevealText } from "./components/ui/reveal-text";
+
 
 /* Fonts */
 const poppins = Poppins({
@@ -124,30 +126,58 @@ export default function Home() {
     <main className={`${poppins.className} bg-aurora-kcs text-white`}>
       {/* ================= HERO ================= */}
       <section
-        className="relative isolate flex flex-col items-center justify-center min-h-[100svh] overflow-hidden"
-        aria-labelledby="event-title"
-      >
-        <motion.div {...fadeUp} className="relative z-10 text-center px-4 text-black">
-          <p className="mb-6">
-            <time dateTime="2025-10-16">October 16, 2025</time> — Kuala Lumpur
-          </p>
+  className="relative isolate flex flex-col items-center justify-center min-h-[100svh] overflow-hidden"
+  aria-labelledby="event-title"
+>
+  <motion.div {...fadeUp} className="relative z-10 text-center px-4">
+    {/* Tanggal & lokasi */}
+    <p className="text-black mb-6">
+      <time dateTime="2025-10-16">October 16, 2025</time> — Kuala Lumpur
+    </p>
 
-          <h1 id="event-title" className="text-black text-3xl md:text-5xl font-extrabold tracking-tight mb-3">
-            THE CONVERSION PLAYBOOK:
-          </h1>
-          <p className="text-black text-2xl md:text-4xl font-extrabold tracking-tight mb-4">
-            Shaping Your Marketing Plan Event
-          </p>
-          <p className="text-black mb-6">COLONY, KEL ECO CITY CALL-TO-ACTION</p>
+    {/* Headline pakai RevealText */}
+    <div className="mb-2">
+      <RevealText
+        text="THE CONVERSION PLAYBOOK:"
+        textColor="text-black"
+        overlayColor="text-purple-700"
+        fontSize="text-3xl md:text-5xl"
+        letterDelay={0.06}
+        overlayDelay={0.04}
+        overlayDuration={0.4}
+        springDuration={600}
+      />
+    </div>
 
-          <a
-            href="#register"
-            className="inline-block px-6 py-3 bg-blue-600 rounded-full font-semibold text-white shadow hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 transition"
-          >
-            RSVP NOW
-          </a>
-        </motion.div>
-      </section>
+    {/* Subheadline pakai RevealText */}
+    <div className="mb-4">
+      <RevealText
+        text="Shaping Your Marketing Plan Event"
+        textColor="text-black"
+        overlayColor="text-purple-700"
+        fontSize="text-2xl md:text-4xl"
+        letterDelay={0.055}
+        overlayDelay={0.04}
+        overlayDuration={0.4}
+        springDuration={600}
+      />
+    </div>
+
+    {/* Caption kecil */}
+    <p className="text-black mb-6">
+      COLONY, KEL ECO CITY CALL-TO-ACTION
+    </p>
+
+    {/* CTA tetap putih di atas tombol biru */}
+    <a
+      href="#register"
+      className="inline-block px-6 py-3 bg-blue-600 rounded-full font-semibold text-white shadow hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 transition"
+    >
+      RSVP NOW
+    </a>
+  </motion.div>
+</section>
+
 
       {/* ================= INTRO + DETAILS ================= */}
       <section className="px-6 py-20">
