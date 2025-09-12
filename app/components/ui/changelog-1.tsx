@@ -34,10 +34,10 @@ export function Changelog1({
   title,
   description,
   entries,
-  colorMode = "light",
+  colorMode = "dark",
   className,
 }: Changelog1Props) {
-  const isLight = colorMode === "light";
+  const isLight = colorMode === "dark";
 
   return (
     <section className={clsx("w-full", className)}>
@@ -65,43 +65,24 @@ export function Changelog1({
             className="relative grid grid-cols-1 md:grid-cols-[170px_1fr] gap-6 md:gap-10"
           >
             {/* timeline dot */}
-            <span
+            {/* <span
               aria-hidden
               className={clsx(
                 "absolute -left-2 top-2 h-3 w-3 rounded-full",
                 isLight ? "bg-blue-500 ring-4 ring-white" : "bg-blue-300/90 ring-4 ring-white/10"
               )}
-            />
+            /> */}
             {/* Optional vertical line (subtle) */}
-            <span
+            {/* <span
               aria-hidden
               className={clsx(
                 "hidden md:block absolute left-0 top-8 -bottom-8 w-px",
                 isLight ? "bg-neutral-200" : "bg-white/15"
               )}
-            />
+            /> */}
 
             {/* Left: Date */}
             <div className="pl-6 md:pl-0">
-              {e.date && (
-                <div className={clsx(
-                  "text-sm font-semibold",
-                  isLight ? "text-neutral-500" : "text-white/70"
-                )}>
-                  {e.date}
-                </div>
-              )}
-            </div>
-
-            {/* Right: Card */}
-            <div
-              className={clsx(
-                "rounded-2xl p-6 md:p-8 shadow-sm",
-                isLight
-                  ? "bg-white text-neutral-900 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
-                  : "bg-white/10 text-white backdrop-blur border border-white/10"
-              )}
-            >
               {/* time badge */}
               {e.version && (
                 <span
@@ -115,6 +96,18 @@ export function Changelog1({
                   {e.version}
                 </span>
               )}
+            </div>
+
+            {/* Right: Card */}
+            <div
+              className={clsx(
+                "rounded-2xl p-6 md:p-8 shadow-sm",
+                isLight
+                  ? "bg-white text-neutral-900 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
+                  : "bg-white/10 text-white backdrop-blur border border-white/10"
+              )}
+            >
+              
 
               <h3 className="mt-3 text-2xl md:text-3xl font-extrabold">
                 {e.title}
