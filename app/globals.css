@@ -183,3 +183,22 @@ input[type="number"]{ -moz-appearance: textfield; }
     @apply bg-background text-foreground;
   }
 }
+
+/* bikin select gelap + minta browser pakai dark color-scheme untuk panel dropdown */
+.select-kcs {
+  color-scheme: dark; /* penting: bikin popup dropdown ikut gelap */
+  background: linear-gradient(90deg, #201341 0%, #3b2b59 100%);
+}
+
+/* warna opsi saat daftar terbuka (Chrome/Edge/Firefox sudah support) */
+.select-kcs option {
+  background-color: #201341; /* warna panel */
+  color: #ffffff;
+}
+
+/* (opsional) warna opsi saat hover/highlight */
+.select-kcs option:checked,
+.select-kcs option:hover {
+  background-color: #2758d6;
+  color: #ffffff;
+}

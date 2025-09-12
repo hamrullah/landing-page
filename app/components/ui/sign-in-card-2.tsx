@@ -128,7 +128,10 @@ export function Component({
                 id="companyCountry"
                 name="companyCountry"
                 defaultValue=""
-                className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                className="select-kcs w-full rounded-lg border border-white/15
+      px-4 py-3 pr-10 text-white
+      focus:outline-none focus:ring-2 focus:ring-blue-300
+      appearance-none"
               >
                 <option value="" disabled>
                   Select a country
@@ -151,7 +154,10 @@ export function Component({
                 id="companyType"
                 name="companyType"
                 defaultValue=""
-                className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                className="select-kcs w-full rounded-lg border border-white/15
+      px-4 py-3 pr-10 text-white
+      focus:outline-none focus:ring-2 focus:ring-blue-300
+      appearance-none"
               >
                 <option value="" disabled>
                   Select type
@@ -171,7 +177,10 @@ export function Component({
                 id="companySize"
                 name="companySize"
                 defaultValue=""
-                className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                className="select-kcs w-full rounded-lg border border-white/15
+      px-4 py-3 pr-10 text-white
+      focus:outline-none focus:ring-2 focus:ring-blue-300
+      appearance-none"
               >
                 <option value="" disabled>
                   Select size
