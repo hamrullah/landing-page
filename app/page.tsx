@@ -30,12 +30,12 @@ const poppins = Poppins({
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const SPEAKERS = [
-  { name: "Christian Gerron", role: "CRO, StackAdapt", img: "/attend1.jpg",quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!" },
-  { name: "Liam McCarten", role: "APAC VP, StackAdapt", img: "/attend2.jpg" ,quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!"},
-  { name: "Anna Goodridge", role: "Senior Conversion Expert", img: "/attend3.jpg",quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!" },
-  { name: "Jessica Tan", role: "Marketing Leader", img: "/attend4.jpg" ,quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!"},
-  { name: "David Wong", role: "CEO", img: "/attend1.jpg", quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!" },
-  { name: "Miranda Simopoulos", role: "Regional CMO", img: "/attend3.jpg" ,quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!"},
+  { name: "Christian Gerron", role: "CRO, StackAdapt", img: "/attend1-1.jpg",quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!" },
+  { name: "Liam McCarten", role: "APAC VP, StackAdapt", img: "/attend2-1.jpg" ,quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!"},
+  { name: "Anna Goodridge", role: "Senior Conversion Expert", img: "/attend3-1.jpg",quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!" },
+  { name: "Jessica Tan", role: "Marketing Leader", img: "/attend4-1.jpg" ,quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!"},
+  { name: "David Wong", role: "CEO", img: "/attend1-1.jpg", quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!" },
+  { name: "Miranda Simopoulos", role: "Regional CMO", img: "/attend3-1.jpg" ,quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!"},
 ];
 
 const SPEAKER_TESTIMONIALS = SPEAKERS.map((s) => ({
