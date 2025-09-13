@@ -1,8 +1,8 @@
 "use client";
-import * as React from "react";
-import Link from "next/link";
+
 import { motion, useReducedMotion } from "framer-motion";
 import { Calendar, MapPin } from "lucide-react";
+import Link from "next/link";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -16,100 +16,96 @@ export default function IntroDetailsSection() {
   } as const;
 
   return (
-    <section className="relative z-0 w-full bg-aurora-kcs px-6 pt-44 pb-16 text-white md:pt-52 md:pb-20">
-      {/* overlay tambahan (cahaya lembut), BUKAN parent konten */}
-      <div
-       
-      />
-
-      {/* ROW 1: kiri = heading + bullets, kanan = detail */}
-      <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-start gap-10 md:grid-cols-2">
-        <motion.div {...fadeUp}>
-          <h2 className="text-[34px] font-extrabold leading-[1.12] md:text-[40px]">
-            <span>Your </span>
-            <span className="bg-gradient-to-r from-cyan-300 to-sky-400 bg-clip-text text-transparent">2026</span>{" "}
-            <span className="bg-gradient-to-r from-[#EEA6FF] via-[#FF63D1] to-[#C94BFF] bg-clip-text text-transparent">
-              Playbook
-            </span>
-            <br />
-            <span>Starts Here</span>
+    <section className="relative z-10 min-h-[92vh] w-full overflow-visible text-white bg-aurora-kcs">
+      <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-10 md:grid-cols-2">
+        {/* LEFT SIDE */}
+        <motion.div {...fadeUp} className="space-y-5">
+          <h2 className="text-[40px] md:text-[48px] font-extrabold leading-tight text-[#0F0B1A]">
+            Your{" "}
+            <span className="bg-gradient-to-r from-pink-300 to-purple-500 bg-clip-text text-transparent">
+              2026 Playbook
+            </span>{" "}
+            Starts Here
           </h2>
 
-          <p className="mt-4 max-w-prose text-white/85">
-            Gain insights from brands, creators, and platforms shaping the future of marketing. Leave with a Playbook of
-            strategies — from storytelling to performance — to power your 2026 campaigns.
+          <p className="text-white/80 max-w-[60ch]">
+            Gain insights from brands, creators, and platforms shaping the
+            future of marketing. Leave with a Playbook of strategies — from
+            storytelling to performance — to power your 2026 campaigns.
           </p>
 
-          <ul className="mt-5 space-y-2 text-white/80">
-            <li className="flex items-start gap-3">
-              <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-white/70" />
+          <ul className="mt-3 space-y-2 text-white/85 text-sm md:text-base">
+            <li className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-white/70" />
               <span>
-                Event info block • <time dateTime="2025-10-16">October 16, 2025</time> •{" "}
+                Event info block •{" "}
+                <time dateTime="2025-10-16">October 16, 2025</time> •{" "}
                 <Link
                   href="https://www.google.com/maps/search/?api=1&query=Colony+%40+KL+Eco+City"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-fuchsia-300 underline-offset-2 hover:text-fuchsia-200 hover:underline"
+                  className="underline-offset-2 hover:underline text-pink-300"
                 >
                   Colony @ KL Eco City
                 </Link>
               </span>
             </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-white/70" />
+            <li className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-white/70" />
               <span>Invite-Only.</span>
             </li>
           </ul>
 
-          <h3 className="mt-8 text-2xl font-extrabold md:text-[28px]">
+          <h3 className="pt-8 text-[32px] md:text-[40px] font-extrabold tracking-tight text-white">
             The{" "}
-            <span className="bg-gradient-to-r from-[#EEA6FF] to-[#FF63D1] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-pink-400 to-purple-600 bg-clip-text text-transparent">
               Conversion
             </span>{" "}
             Playbook:
           </h3>
         </motion.div>
 
-        <motion.aside {...fadeUp} aria-label="Event details" className="text-white/90">
-          <ul className="space-y-3 text-[15px]">
-            <li className="flex items-center gap-3">
-              <Calendar className="h-4 w-4 text-fuchsia-300" />
-              <span className="font-medium">October 16, 2025</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <MapPin className="h-4 w-4 text-fuchsia-300" />
+        {/* RIGHT SIDE */}
+        <motion.aside {...fadeUp} className="space-y-8 text-white md:pl-6">
+          {/* Event details block */}
+          <div className="space-y-3">
+            <br/>
+            <br/>
+            <br/>
+            <div className="flex items-center gap-2 font-bold">
+              <Calendar className="h-4 w-4 text-pink-300" />
+              <span>October 16, 2025</span>
+            </div>
+            <div className="flex items-center gap-2 font-bold">
+              <MapPin className="h-4 w-4 text-pink-300" />
               <span>
-                <Link
-                  href="https://www.google.com/maps/search/?api=1&query=Colony+%40+KL+Eco+City"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-fuchsia-300 underline-offset-2 hover:text-fuchsia-200 hover:underline"
-                >
-                  Colony @ KL Eco City
-                </Link>
-                <span className="mx-1">•</span>
-                <span className="font-medium text-fuchsia-300">Invite-Only</span>
+                Colony @ KL Eco City –{" "}
+                <span className="text-pink-300">Invite-Only</span>
               </span>
-            </li>
-          </ul>
+            </div>
+          </div>
+
+          {/* Event description */}
+          <br />
+          <br/>
+          <br />
+          <br/>
+          <p className="text-white/90 text-sm md:text-base leading-relaxed">
+            Shaping Your 2026 Marketing Plan is an exclusive event designed for
+            marketing leaders, brand builders, and decision-makers. You’ll hear
+            from brands, platforms, and creators who are reshaping how marketing
+            connects with people. The sessions are designed to inspire bold
+            ideas, share practical strategies, and spark conversations. Why
+            attend?{" "}
+            <span className="mx-1">•</span> Future-ready insights
+            <span className="mx-1">•</span> Actionable frameworks
+            <span className="mx-1">•</span> Real brand stories
+            <span className="mx-1">•</span> Meaningful connections.
+          </p>
         </motion.aside>
       </div>
 
-      {/* ROW 2: paragraf kanan */}
-      <div className="relative mx-auto mt-6 max-w-6xl">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          <div />
-          <p className="text-white/80">
-            Shaping Your 2026 Marketing Plan is an exclusive event designed for marketing leaders, brand builders, and
-            decision-makers. You’ll hear from brands, platforms, and creators who are reshaping how marketing connects
-            with people. Sessions blend inspiration with practical frameworks and real brand stories — more predictable
-            strategies, an agenda you can action immediately, and confidence to turn storytelling into performance.
-          </p>
-        </div>
-      </div>
-
-      {/* separator */}
-      <div className="relative mx-auto mt-12 max-w-6xl border-t border-white/10" />
+      {/* Divider */}
     </section>
   );
 }
