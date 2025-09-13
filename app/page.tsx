@@ -17,8 +17,8 @@ import {
 import { CircularTestimonials } from "./components/ui/circular-testimonials";
 import { Changelog1 } from "./components/ui/changelog-1";
 import { Component as SignInCard } from "./components/ui/sign-in-card-2";
-import { RevealText } from "./components/ui/reveal-text";
-
+import Hero from "./components/hero";
+import IntroDetailsSection from "./components/IntroDetailsSection";
 
 /* Fonts */
 const poppins = Poppins({
@@ -26,93 +26,50 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-/* Static Data */
+/* Ease */
 const EASE = [0.22, 1, 0.36, 1] as const;
 
+/* Data */
 const SPEAKERS = [
-  { name: "Christian Gerron", role: "CRO, StackAdapt", img: "/attend1-1.jpg",quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!" },
-  { name: "Liam McCarten", role: "APAC VP, StackAdapt", img: "/attend2-1.jpg" ,quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!"},
-  { name: "Anna Goodridge", role: "Senior Conversion Expert", img: "/attend3-1.jpg",quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!" },
-  { name: "Jessica Tan", role: "Marketing Leader", img: "/attend4-1.jpg" ,quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!"},
-  { name: "David Wong", role: "CEO", img: "/attend1-1.jpg", quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!" },
-  { name: "Miranda Simopoulos", role: "Regional CMO", img: "/attend3-1.jpg" ,quote : "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!"},
+  { name: "Christian Gerron", role: "CRO, StackAdapt", img: "/attend1-1.jpg", quote: "…" },
+  { name: "Liam McCarten", role: "APAC VP, StackAdapt", img: "/attend2-1.jpg", quote: "…" },
+  { name: "Anna Goodridge", role: "Senior Conversion Expert", img: "/attend3-1.jpg", quote: "…" },
+  { name: "Jessica Tan", role: "Marketing Leader", img: "/attend4-1.jpg", quote: "…" },
+  { name: "David Wong", role: "CEO", img: "/attend1-1.jpg", quote: "…" },
+  { name: "Miranda Simopoulos", role: "Regional CMO", img: "/attend3-1.jpg", quote: "…" },
 ];
 
 const SPEAKER_TESTIMONIALS = SPEAKERS.map((s) => ({
   name: s.name,
   designation: s.role,
   src: s.img,
-  quote: s.quote
+  quote: s.quote,
 }));
 
 const AGENDA = [
-  {
-    time: "12:30 – 1:15 PM",
-    title: "Registration & Networking Lunch",
-    desc: "Guest arrivals with light bites and canapés, informal networking.",
-  },
-  {
-    time: "1:15 – 1:20 PM",
-    title: "Welcome by Emcee",
-    desc: "Emcee introduction, overview of the day’s objective: Exploring strategies that convert awareness into measurable impact.",
-  },
-  {
-    time: "1:20 – 1:25 PM",
-    title: "CEO Opening Keynote – Keem",
-    desc: "Welcome address and quick introduction. Setting the tone: Why this conversation matters for brands moving into 2026.",
-    speakers: "Keem, CEO",
-  },
-  {
-    time: "1:25 – 1:45 PM",
-    title: "Julie’s: Rebranding that Converts Perceptions into Loyalty",
-    desc: "Case study on how Julie’s repositioned its brand to build trust and long-term consumer connection.",
-    speakers: "Julie’s Marketing Team",
-  },
-  {
-    time: "1:45 – 2:05 PM",
-    title: "PayNet : Shaping Everyday Behaviour: Educating Users into Adoption",
-    desc: "How to build trust and adoption by integrating seamlessly into daily life, turning innovative solutions into habits that feel natural and intuitive for users.",
-    speakers: "PayNet Representative",
-  },
-  {
-    time: "2:05 – 2:25 PM",
-    title: "Richard Ker: The Creator’s Edge",
-    desc: "Storytelling that converts audiences into advocates. Why authentic, creator-driven narratives outlast algorithms and strengthen brand advocacy.",
-    speakers: "Richard Ker",
-  },
-  {
-    time: "2:25 – 2:45 PM",
-    title: "StackAdapt: Programmatic Without Borders",
-    desc: "How programmatic unifies CTV, DOOH, audio, and display to drive measurable brand results.",
-    speakers: "StackAdapt Team",
-  },
-  {
-    time: "2:45 – 3:05 PM",
-    title: "KCS: The Performance Marketing Engine",
-    desc: "Introducing PME, a structured system that ties creativity, storytelling, and media into measurable growth.",
-    speakers: "KCS Representative",
-  },
+  { time: "12:30 – 1:15 PM", title: "Registration & Networking Lunch", desc: "Guest arrivals with light bites and canapés, informal networking." },
+  { time: "1:15 – 1:20 PM", title: "Welcome by Emcee", desc: "Emcee introduction, overview of the day’s objective: Exploring strategies that convert awareness into measurable impact." },
+  { time: "1:20 – 1:25 PM", title: "CEO Opening Keynote – Keem", desc: "Why this conversation matters for 2026.", speakers: "Keem, CEO" },
+  { time: "1:25 – 1:45 PM", title: "Julie’s: Rebranding that Converts Perceptions into Loyalty", desc: "Case study on Julie’s repositioning.", speakers: "Julie’s Marketing Team" },
+  { time: "1:45 – 2:05 PM", title: "PayNet: Shaping Everyday Behaviour", desc: "Build trust/adoption by integrating into daily life.", speakers: "PayNet Representative" },
+  { time: "2:05 – 2:25 PM", title: "Richard Ker: The Creator’s Edge", desc: "Creator-driven narratives outlast algorithms.", speakers: "Richard Ker" },
+  { time: "2:25 – 2:45 PM", title: "StackAdapt: Programmatic Without Borders", desc: "Unifying CTV, DOOH, audio, display.", speakers: "StackAdapt Team" },
+  { time: "2:45 – 3:05 PM", title: "KCS: The Performance Marketing Engine", desc: "Introducing PME for measurable growth.", speakers: "KCS Representative" },
   { time: "3:05 – 3:25 PM", title: "Coffee Break & Networking", desc: "Refreshments and informal mingling." },
   { time: "3:25 – 3:55 PM", title: "Panel / Fireside Chat", desc: "Conversion in the New Marketing Era." },
-  { time: "3:55 – 4:15 PM", title: "Interactive Session", desc: "A fun and engaging recap of key learnings, with small prizes for winners." },
-  {
-    time: "4:15 – 4:45 PM",
-    title: "Closing Remarks - KCS Representative",
-    desc: "Key takeaways tying together insights to shape impactful marketing plans for 2026.",
-    speakers: "KCS Representative",
-  },
+  { time: "3:55 – 4:15 PM", title: "Interactive Session", desc: "Fun recap with small prizes." },
+  { time: "4:15 – 4:45 PM", title: "Closing Remarks", desc: "Key takeaways for 2026.", speakers: "KCS Representative" },
   { time: "4:45 – 5:30 PM", title: "Networking Session & Farewell", desc: "Relaxed networking as guests depart." },
 ];
 
 const AGENDA_ENTRIES = AGENDA.map((a) => ({
-  version: a.time,                       // tampil di pill kiri
-  date: "16 October 2025",               // tanggal event (opsional)
+  version: a.time,
+  date: "16 October 2025",
   title: a.title,
   description: a.desc,
   items: a.speakers ? [a.speakers] : undefined,
 }));
 
-/* Page */
 export default function Home() {
   const prefersReducedMotion = useReducedMotion();
   const fadeUp = {
@@ -123,126 +80,17 @@ export default function Home() {
   };
 
   return (
-    <main className={`${poppins.className} bg-aurora-kcs text-white`}>
-      {/* ================= HERO ================= */}
-      <section
-  className="relative isolate flex flex-col items-center justify-center min-h-[100svh] overflow-hidden"
-  aria-labelledby="event-title"
->
-  <motion.div {...fadeUp} className="relative z-10 text-center px-4">
-    {/* Tanggal & lokasi */}
-    <p className="text-black mb-6">
-      <time dateTime="2025-10-16">October 16, 2025</time> — Kuala Lumpur
-    </p>
+    <main className={`${poppins.className} bg-aurora-kcs`}>
+      {/* ============ HERO (sudah overlap speaker strip) ============ */}
+      <Hero bgSrc="/image-bg.jpg" targetISO="2025-10-16T12:30:00+08:00" speakers={SPEAKERS} />
+      <IntroDetailsSection />   {/* <- Desktop Section 2 */}
+      {/* ============ SECTION 2: sesuai gambar ============ */}
+    
 
-    {/* Headline pakai RevealText */}
-    <div className="mb-2">
-      <RevealText
-        text="THE CONVERSION PLAYBOOK:"
-        textColor="text-black"
-        overlayColor="text-purple-700"
-        fontSize="text-3xl md:text-5xl"
-        letterDelay={0.06}
-        overlayDelay={0.04}
-        overlayDuration={0.4}
-        springDuration={600}
-      />
-    </div>
+      {/* (hapus section lama yang card biru & “WHY ATTEND” agar tidak dobel) */}
 
-    {/* Subheadline pakai RevealText */}
-    <div className="mb-4">
-      <RevealText
-        text="Shaping Your Marketing Plan Event"
-        textColor="text-black"
-        overlayColor="text-purple-700"
-        fontSize="text-2xl md:text-4xl"
-        letterDelay={0.055}
-        overlayDelay={0.04}
-        overlayDuration={0.4}
-        springDuration={600}
-      />
-    </div>
-
-    {/* Caption kecil */}
-    <p className="text-black mb-6">
-      COLONY, KEL ECO CITY CALL-TO-ACTION
-    </p>
-
-    {/* CTA tetap putih di atas tombol biru */}
-    <a
-      href="#register"
-      className="inline-block px-6 py-3 bg-blue-600 rounded-full font-semibold text-white shadow hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 transition"
-    >
-      RSVP NOW
-    </a>
-  </motion.div>
-</section>
-
-
-      {/* ================= INTRO + DETAILS ================= */}
-      <section className="px-6 py-20">
-        <div className="mx-auto grid max-w-6xl md:grid-cols-2 gap-10 items-center">
-          <motion.div {...fadeUp}>
-            <h2 className="text-3xl font-extrabold mb-6">
-              <span className="text-gray-200">Your 2026 Playbook Starts Here</span>
-            </h2>
-            <motion.p {...fadeUp} className="text-gray-200/80">
-              Gain insights from brands, creators, and platforms shaping the future of marketing. Leave with a playbook
-              of strategies — from storytelling to performance for you to power your 2026 campaigns. Event Info Block:
-              ● October 16, 2025 ● Colony @ KL Eco City ● Invite-only.
-            </motion.p>
-          </motion.div>
-
-          <motion.aside
-            {...fadeUp}
-            className="bg-black/25 backdrop-blur-sm rounded-xl p-6 space-y-4 shadow-lg border border-white/10"
-            aria-label="Event details"
-          >
-            <div className="flex items-center gap-3">
-              <Calendar className="text-blue-300 w-5 h-5" aria-hidden="true" />
-              <span>
-                <time dateTime="2025-10-16">October 16, 2025</time>
-              </span>
-            </div>
-            <div className="flex items-center gap-3">
-              <MapPin className="text-blue-300 w-5 h-5" aria-hidden="true" />
-              <Link
-                href="https://www.google.com/maps/search/?api=1&query=Colony+%40+KL+Eco+City"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline text-blue-200 font-medium"
-              >
-                Colony @ KL Eco City · Invite-only
-              </Link>
-            </div>
-            <div className="flex items-center gap-3">
-              <Mail className="text-blue-300 w-5 h-5" aria-hidden="true" />
-              <span>Invitation-only</span>
-            </div>
-          </motion.aside>
-        </div>
-      </section>
-
-      {/* ================= WHY ATTEND ================= */}
-      <section className="px-6 py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-12 grid md:grid-cols-2 gap-8">
-            <motion.h2 {...fadeUp} className="text-4xl font-extrabold">
-              The Conversion Playbook:
-            </motion.h2>
-            <motion.p {...fadeUp} className="text-white/80">
-              Shaping Your 2026 Marketing Plan is an exclusive event designed for marketing leaders, brand builders, and
-              decision-makers. You’ll hear from brands, platforms, and creators who are reshaping the way marketing
-              connects with people. The sessions are designed to inspire bold ideas, share practical strategies, and
-              spark conversations. Why Attend ● Future-ready insights ● Actionable frameworks ● Real brand stories ●
-              Meaningful connections.
-            </motion.p>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= SPEAKERS ================= */}
-      <section id="speakers" className="px-6 py-20">
+      {/* ============ SPEAKERS (carousel / circular) ============ */}
+      <section id="speakers" className="bg-aurora-kcs text-white px-6 py-20">
         <div className="max-w-6xl mx-auto space-y-10">
           <header className="text-center">
             <h2 className="text-3xl md:text-4xl font-extrabold">
@@ -250,34 +98,6 @@ export default function Home() {
             </h2>
           </header>
 
-          {/* Grid kartu speaker */}
-          {/* <ul className="grid grid-cols-2 md:grid-cols-3 gap-8">
-            {SPEAKERS.map((spk, i) => (
-              <li key={`${spk.name}-${i}`} className="text-center">
-                <div className="relative overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-lg">
-                  <Image
-                    src={spk.img}
-                    alt={`${spk.name}, ${spk.role}`}
-                    width={600}
-                    height={720}
-                    sizes="(min-width: 1024px) 400px, 50vw"
-                    className="object-cover w-full aspect-[3/4] transition-transform duration-500 hover:scale-105"
-                    priority={i === 0}
-                  />
-                  <div className="pointer-events-none absolute inset-x-0 top-0 p-3 text-left">
-                    <div className="rounded-md bg-gradient-to-b from-blue-600/70 to-transparent p-3">
-                      <p className="text-xs uppercase tracking-wide text-white/90">{spk.role}</p>
-                      <p className="text-sm font-semibold text-white">{spk.name}</p>
-                    </div>
-                  </div>
-                </div>
-                <p className="mt-4 font-semibold">{spk.name}</p>
-                <p className="text-sm text-white/70">{spk.role}</p>
-              </li>
-            ))}
-          </ul> */}
-
-          {/* Animasi CircularTestimonials */}
           <div className="mt-16">
             <CircularTestimonials
               testimonials={SPEAKER_TESTIMONIALS}
@@ -290,25 +110,20 @@ export default function Home() {
                 arrowForeground: "#ffffff",
                 arrowHoverBackground: "#3b82f6",
               }}
-              fontSizes={{
-                name: "22px",
-                designation: "14px",
-                quote: "18px",
-              }}
+              fontSizes={{ name: "22px", designation: "14px", quote: "18px" }}
             />
           </div>
         </div>
       </section>
 
-      {/* ================= EVENT AGENDA (Timeline UI) ================= */}
-      <section className="px-6 py-20">
+      {/* ============ EVENT AGENDA ============ */}
+      <section className="bg-aurora-kcs text-white px-6 py-20">
         <div className="max-w-5xl mx-auto space-y-12">
           <header className="space-y-4 text-left">
             <h2 className="text-3xl md:text-4xl font-extrabold">
               Event Agenda – The Conversion Playbook:{" "}
               <span className="text-blue-100">Shaping Your 2026 Marketing Plan</span>
             </h2>
-
             <p className="text-white/85">
               Venue: Colony @ KL Eco City <br />
               Date: <time dateTime="2025-10-16">16 October 2025</time> <br />
@@ -320,53 +135,47 @@ export default function Home() {
           <div className="space-y-3 text-white/80 text-left max-w-3xl">
             <h3 className="text-xl font-semibold text-white">Event Objective</h3>
             <p>
-              This event brings together leading voices—brands, platforms, and creators—to share insights on the future
-              of marketing. From rebranding journeys and creator-led strategies to programmatic innovation and
-              data-driven storytelling, sessions are designed to spark ideas for building effective, future-ready
-              campaigns. The goal is to equip participants with fresh perspectives, practical strategies, and
-              inspiration for shaping their 2026 marketing plans.
+              This event brings together leading voices—brands, platforms, and creators—to share insights on
+              the future of marketing. From rebranding journeys and creator-led strategies to programmatic
+              innovation and data-driven storytelling, sessions are crafted to equip you with fresh
+              perspectives and practical moves for your 2026 plans.
             </p>
           </div>
 
           <Changelog1
-  title="Event Agenda"
-  description="Network session on 16 October 2025."
-  entries={AGENDA_ENTRIES}
-  colorMode="light"   // <- supaya kartu putih, teks gelap
-/>
+            title="Event Agenda"
+            description="Network session on 16 October 2025."
+            entries={AGENDA_ENTRIES}
+            colorMode="light"
+          />
         </div>
       </section>
 
-    {/* ================= REGISTRATION ================= */}
-<section id="register" className="px-6 py-24">
-  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
-    {/* Left info panel */}
-    <aside className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-2xl p-8 space-y-6">
-      <h2 className="text-3xl font-extrabold leading-tight">Registration is now open!</h2>
-      <p className="text-white/80">
-        Spaces are limited, please register as soon as possible to reserve your spot.
-      </p>
+      {/* ============ REGISTRATION ============ */}
+      <section id="register" className="bg-aurora-kcs text-white px-6 py-24">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
+          <aside className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-2xl p-8 space-y-6">
+            <h2 className="text-3xl font-extrabold leading-tight">Registration is now open!</h2>
+            <p className="text-white/80">
+              Spaces are limited — please register as soon as possible to reserve your spot.
+            </p>
+            <div className="flex items-start gap-3 rounded-xl bg-black/40 border border-white/10 p-4">
+              <AlertCircle className="w-5 h-5 mt-0.5 text-white/80" aria-hidden="true" />
+              <p className="text-sm text-white/80">
+                Please disable any ad blockers to successfully submit this form.
+              </p>
+            </div>
+          </aside>
 
-      <div className="flex items-start gap-3 rounded-xl bg-black/40 border border-white/10 p-4">
-        <AlertCircle className="w-5 h-5 mt-0.5 text-white/80" aria-hidden="true" />
-        <p className="text-sm text-white/80">
-          Please disable any ad blockers to successfully submit this form.
-        </p>
-      </div>
-    </aside>
+          <div className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden self-stretch">
+            <SignInCard />
+          </div>
+        </div>
+      </section>
 
-    {/* Right panel: pakai komponen sign-in-card-2 */}
-    <div className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-2xl p-0 overflow-hidden self-stretch">
-      <SignInCard />
-    </div>
-  </div>
-</section>
-
-
-      {/* ================= FOOTER / CTA ================= */}
-      <footer id="contact" className="px-6 py-24">
+      {/* ============ FOOTER CTA ============ */}
+      <footer id="contact" className="bg-aurora-kcs text-white px-6 py-24">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-          {/* LEFT */}
           <div className="space-y-8">
             <h2 className="text-5xl md:text-7xl font-extrabold leading-[0.95]">
               <span className="bg-gradient-to-r from-purple-800 via-purple-600 to-purple-800 bg-clip-text text-transparent">
@@ -391,7 +200,7 @@ export default function Home() {
               Let’s make it happen.
             </a>
 
-            <div className="space-y-3 text-black/80 text-sm md:text-base">
+            <address className="not-italic space-y-3 text-black/80 text-sm md:text-base">
               <p>2025 © All rights reserved. Kredence Creative Solutions Sdn Bhd</p>
               <p>
                 Unit 16–01, Menara MBMR, 1, Jalan Syed Putra, 58000
@@ -401,18 +210,18 @@ export default function Home() {
               <p>
                 +6018-203 8817
                 <br />
-                worktogether@kredencecs.com
+                <a href="mailto:worktogether@kredencecs.com" className="underline-offset-2 hover:underline">
+                  worktogether@kredencecs.com
+                </a>
               </p>
-            </div>
+            </address>
           </div>
 
-          {/* RIGHT */}
           <div className="md:justify-self-end w-full max-w-[520px]">
             <div className="rounded-3xl border border-white/30 bg-white/50 backdrop-blur-xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
               <h3 className="text-2xl font-extrabold text-purple-800">Stay Ahead with KCS</h3>
               <p className="mt-3 text-black/80">
-                Subscribe to Kredence Creative Solutions for the latest insights, strategies, and trends in digital
-                marketing. Let’s shape the future of marketing together!
+                Subscribe for the latest insights, strategies, and trends in digital marketing. Let’s shape the future together!
               </p>
 
               <form
@@ -425,7 +234,9 @@ export default function Home() {
                 }}
               >
                 <div className="relative flex-1">
+                  <label className="sr-only" htmlFor="email-subscribe">Email address</label>
                   <input
+                    id="email-subscribe"
                     type="email"
                     name="email"
                     required
@@ -443,17 +254,14 @@ export default function Home() {
               </form>
             </div>
 
-            {/* Social icons */}
             <ul className="mt-10 flex flex-wrap gap-3 md:justify-end">
-              {[
-                { href: "#", label: "Facebook", Icon: FaFacebookF },
+              {[{ href: "#", label: "Facebook", Icon: FaFacebookF },
                 { href: "#", label: "Instagram", Icon: FaInstagram },
                 { href: "#", label: "LinkedIn", Icon: FaLinkedinIn },
                 { href: "#", label: "X", Icon: FaXTwitter },
                 { href: "#", label: "TikTok", Icon: FaTiktok },
                 { href: "#", label: "Behance", Icon: FaBehance },
-                { href: "#", label: "YouTube", Icon: FaYoutube },
-              ].map(({ href, label, Icon }, i) => (
+                { href: "#", label: "YouTube", Icon: FaYoutube }].map(({ href, label, Icon }, i) => (
                 <li key={i}>
                   <a
                     href={href}

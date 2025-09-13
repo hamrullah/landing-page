@@ -1,5 +1,4 @@
 /* === Tailwind v4 entry === */
-
 @plugin "tailwindcss-animate";
 @import "tailwindcss";
 /*@import "tw-animate-css";*/
@@ -63,38 +62,40 @@ body {
    Global page background
    -> pakai: className="bg-aurora-kcs"
 ========================= */
+/* === KCS Aurora sesuai Figma === */
 .bg-aurora-kcs{
-  background:
-    /* blush peach kanan-atas */
-    radial-gradient(700px 520px at 98% 12%, rgba(var(--pink-rgb),0.85), transparent 55%),
-    /* blush bawah-kiri */
-    radial-gradient(640px 480px at 18% 86%, rgba(184,129,201,0.60), transparent 60%),
-    /* gradasi utama kiri→kanan */
-    linear-gradient(90deg,
-      var(--purple-1) 4%,
-      var(--purple-2) 30%,
-      var(--purple-3) 60%,
-      var(--purple-4) 100%);
+  /* deep purple base */
+  background-color:#2D0953;
+  /* layer 1: linear ungu kiri→kanan */
+  /* layer 2: radial glow pink di kanan-atas */
+  background-image:
+    linear-gradient(90deg, #845194 0%, #6A3C81 52%, #2D0953 100%),
+    radial-gradient(920px 620px at 96% 12%,
+      #EFBBC4 0%,
+      #845194 33%,
+      #6A3C81 62%,
+      rgba(45,9,83,0) 100%
+    );
   background-repeat: no-repeat;
+  background-size: cover, 920px 620px; /* kunci ukuran glow agar mirip Figma */
 }
 
-/* Responsive tweak (opsional) */
-@media (max-width: 1024px){
+/* responsif: skala glow pakai vw agar tetap di pojok kanan-atas */
+@media (max-width: 1280px){
   .bg-aurora-kcs{
-    background:
-      radial-gradient(60vw 42vw at 92% 14%, rgba(var(--pink-rgb),0.90), transparent 55%),
-      radial-gradient(70vw 48vw at 22% 86%, rgba(184,129,201,0.55), transparent 60%),
-      linear-gradient(90deg,
-        var(--purple-1) 4%,
-        var(--purple-2) 30%,
-        var(--purple-3) 60%,
-        var(--purple-4) 100%);
+    background-image:
+      linear-gradient(90deg, #845194 0%, #6A3C81 52%, #2D0953 100%),
+      radial-gradient(64vw 43vw at 96% 12%,
+        #EFBBC4 0%,
+        #845194 33%,
+        #6A3C81 62%,
+        rgba(45,9,83,0) 100%
+      );
+    background-size: cover, 64vw 43vw;
   }
 }
 
-/* ==========
-   Helpers
-========== */
+/* ========== Helpers ========== */
 /* fokus ring default untuk keyboard users */
 :focus-visible { outline: 2px solid rgb(147 197 253); outline-offset: 2px; }
 
