@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { h2 } from "framer-motion/client";
 import { Calendar, MapPin } from "lucide-react";
 import Link from "next/link";
 
@@ -17,7 +18,7 @@ export default function IntroDetailsSection() {
 
   return (
     <section className="relative z-10 min-h-[92vh] w-full overflow-visible text-white bg-aurora-kcs">
-      <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-10 md:grid-cols-2">
+      <div className="relative mx-auto grid mt-5 max-w-6xl grid-cols-1 gap-10 md:grid-cols-2">
         {/* LEFT SIDE */}
         <motion.div {...fadeUp} className="space-y-5">
           <h2 className="text-[40px] md:text-[48px] font-extrabold leading-tight text-[#0F0B1A]">
@@ -56,22 +57,22 @@ export default function IntroDetailsSection() {
             </li>
           </ul>
 
-          <h3 className="pt-8 text-[32px] md:text-[40px] font-extrabold tracking-tight text-white">
+          <h2 className="pt-8 text-[32px] md:text-[40px] font-extrabold tracking-tight text-blue-950">
             The{" "}
             <span className="bg-gradient-to-r from-pink-400 to-purple-600 bg-clip-text text-transparent">
               Conversion
             </span>{" "}
             Playbook:
-          </h3>
+          </h2>
         </motion.div>
 
         {/* RIGHT SIDE */}
         <motion.aside {...fadeUp} className="space-y-8 text-white md:pl-6">
           {/* Event details block */}
           <div className="space-y-3">
-            <br/>
-            <br/>
-            <br/>
+            <br />
+            <br />
+            <br />
             <div className="flex items-center gap-2 font-bold">
               <Calendar className="h-4 w-4 text-pink-300" />
               <span>October 16, 2025</span>
@@ -87,17 +88,16 @@ export default function IntroDetailsSection() {
 
           {/* Event description */}
           <br />
-          <br/>
           <br />
-          <br/>
+          <br />
+          <br />
           <p className="text-white/90 text-sm md:text-base leading-relaxed">
             Shaping Your 2026 Marketing Plan is an exclusive event designed for
             marketing leaders, brand builders, and decision-makers. You’ll hear
             from brands, platforms, and creators who are reshaping how marketing
             connects with people. The sessions are designed to inspire bold
             ideas, share practical strategies, and spark conversations. Why
-            attend?{" "}
-            <span className="mx-1">•</span> Future-ready insights
+            attend? <span className="mx-1">•</span> Future-ready insights
             <span className="mx-1">•</span> Actionable frameworks
             <span className="mx-1">•</span> Real brand stories
             <span className="mx-1">•</span> Meaningful connections.

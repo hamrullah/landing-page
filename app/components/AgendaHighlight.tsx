@@ -19,10 +19,10 @@ export default function AgendaHighlight({
   total = 1,
 }: {
   imageSrc?: string;
-  entry?: AgendaItem;     // mode single
+  entry?: AgendaItem; // mode single
   entries?: AgendaItem[]; // mode list-scroll
-  index?: number;         // hanya dipakai mode single
-  total?: number;         // hanya dipakai mode single
+  index?: number; // hanya dipakai mode single
+  total?: number; // hanya dipakai mode single
 }) {
   const listRef = React.useRef<HTMLDivElement>(null);
   const [progress, setProgress] = React.useState(0);
@@ -55,7 +55,9 @@ export default function AgendaHighlight({
       </h3>
 
       {item.speakers && (
-        <p className="mt-1 text-sm font-medium text-fuchsia-200/90">Speakers: {item.speakers}</p>
+        <p className="mt-1 text-sm font-medium text-fuchsia-200/90">
+          Speakers: {item.speakers}
+        </p>
       )}
 
       <p className="mt-3 max-w-[52ch] text-white/85">{item.desc}</p>
@@ -67,7 +69,7 @@ export default function AgendaHighlight({
 
   return (
     <section className="bg-aurora-kcs px-6 py-14 text-white">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 overflow-hidden rounded-3xl border border-white/12 shadow-[0_24px_80px_rgba(0,0,0,.35)] md:grid-cols-2">
+      <div className="mx-auto grid  grid-cols-1 overflow-hidden rounded-xl border border-white/12 shadow-[0_24px_80px_rgba(0,0,0,.35)] md:grid-cols-2">
         {/* LEFT: image */}
         <div className="relative aspect-[4/3] w-full md:aspect-auto">
           <Image
@@ -120,12 +122,17 @@ export default function AgendaHighlight({
 
           {/* CONTENT */}
           {entries?.length ? (
-            <div ref={listRef} className="relative z-10 max-h-[520px] overflow-y-auto pr-10 thin-scroll">
+            <div
+              ref={listRef}
+              className="relative z-10 max-h-[520px] overflow-y-auto pr-10 thin-scroll"
+            >
               <div className="space-y-10">
                 {entries.map((it, idx) => (
                   <div key={idx}>
                     <Item item={it} />
-                    {idx < entries.length - 1 && <div className="my-8 h-px w-full bg-white/10" />}
+                    {idx < entries.length - 1 && (
+                      <div className="my-8 h-px w-full bg-white/10" />
+                    )}
                   </div>
                 ))}
               </div>

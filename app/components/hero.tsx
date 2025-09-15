@@ -9,10 +9,8 @@ import { Menu } from "lucide-react";
 export type Speaker = { name: string; role: string; img: string };
 
 /* --- tokens (mudah diubah kalau perlu) --- */
-const GRAD_TEXT =
-  "linear-gradient(90deg,#EEA6FF 0%,#FF63D1 52%,#C94BFF 100%)"; // untuk kata "Marketing Plan"
-const GRAD_BTN  =
-  "linear-gradient(90deg,#B973FF 0%,#FF63D1 55%,#8B5CF6 100%)"; // hover RSVP
+const GRAD_TEXT = "linear-gradient(90deg,#EEA6FF 0%,#FF63D1 52%,#C94BFF 100%)"; // untuk kata "Marketing Plan"
+const GRAD_BTN = "linear-gradient(90deg,#B973FF 0%,#FF63D1 55%,#8B5CF6 100%)"; // hover RSVP
 
 /* helper teks gradient */
 function GradText({ children }: { children: React.ReactNode }) {
@@ -63,7 +61,7 @@ export default function Hero({
       <div className="relative z-10">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
           <Link href="#" className="inline-flex items-center gap-2">
-            <span className="inline-block h-8 w-16 rounded bg-white/10 backdrop-blur-md" aria-hidden />
+            <img src="./kcs-logo.png" alt="" className="w-15" />
             <span className="sr-only">KCS</span>
           </Link>
           <button className="group inline-flex items-center gap-2 text-sm tracking-[0.2em]">
@@ -81,9 +79,11 @@ export default function Hero({
           </p>
 
           {/* judul: ukuran & leading sesuai mock */}
-          <h1 className="text-4xl font-extrabold leading-[1.05] md:text-5xl lg:text-[56px]">
-            THE CONVERSION <br />PLAYBOOK:Shaping Your <br /><GradText>Marketing Plan</GradText> Event
-          </h1>
+          <h2 className="text-4xl font-inter leading-[1.05] md:text-5xl lg:text-[56px]">
+            THE CONVERSION <br />
+            PLAYBOOK: Shaping Your <br />
+            Marketing Plan Event
+          </h2>
 
           {/* lokasi + CTA */}
           <div className="mt-6 flex flex-wrap items-center gap-4 text-sm">
@@ -130,24 +130,43 @@ export default function Hero({
       {/* SPEAKER STRIP */}
       {speakers.length > 0 && (
         <div className="relative z-50 -mt-24 md:-mt-28 mx-auto w-full max-w-6xl px-6">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 h-90">
             {speakers.slice(0, 4).map((sp, i) => (
               <article
                 key={i}
-                className="group relative overflow-hidden rounded-xl border border-fuchsia-300/20 bg-gradient-to-b from-fuchsia-600/70 to-fuchsia-800/70 p-3 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-md"
+                className="group relative overflow-hidden rounded-xl border border-fuchsia-300/20 
+                     bg-gradient-to-b from-fuchsia-600/70 to-fuchsia-800/70 
+                     shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-md
+                     transition duration-300"
               >
+                {/* Nama & Role */}
+                <h3 className="text-base font-semibold text-center mt-5 transition duration-300 group-hover:text-white">
+                  {sp.name}
+                </h3>
+                <p className="text-sm text-white/70 text-center mb-3 transition duration-300 group-hover:text-white/90">
+                  {sp.role}
+                </p>
+
+                {/* Gambar */}
                 <div className="relative mb-3 aspect-[4/3] w-full overflow-hidden rounded-lg">
                   <Image
                     src={sp.img}
                     alt={sp.name}
                     fill
                     sizes="(max-width:768px) 50vw, 25vw"
-                    className="object-cover"
+                    className="object-cover grayscale group-hover:grayscale-0 transition duration-500"
                   />
                 </div>
-                <h3 className="text-base font-semibold">{sp.name}</h3>
-                <p className="text-sm text-white/80">{sp.role}</p>
-                <button className="mt-3 inline-flex items-center rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white/95 ring-1 ring-inset ring-white/25 transition group-hover:bg-white/20">
+
+                {/* Tombol Profile */}
+                <button
+                  className="mt-3 mb-4 mx-auto block opacity-0 group-hover:opacity-100 w-50
+             translate-y-3 group-hover:translate-y-0
+             rounded-full px-6 py-2 text-sm font-medium text-white
+             bg-purple-600/70
+             shadow-lg shadow-fuchsia-500/30
+             transition duration-300"
+                >
                   Profile
                 </button>
               </article>
@@ -166,7 +185,10 @@ export default function Hero({
 
 function useCountdown(targetISO: string) {
   const prefersReducedMotion = useReducedMotion();
-  const target = React.useMemo(() => new Date(targetISO).getTime(), [targetISO]);
+  const target = React.useMemo(
+    () => new Date(targetISO).getTime(),
+    [targetISO]
+  );
 
   const compute = React.useCallback(() => {
     const diff = Math.max(0, target - Date.now());
@@ -180,17 +202,32 @@ function useCountdown(targetISO: string) {
   const [state, setState] = React.useState(compute);
 
   React.useEffect(() => {
-    const id = setInterval(() => setState(compute), prefersReducedMotion ? 1000 : 1000);
+    const id = setInterval(
+      () => setState(compute),
+      prefersReducedMotion ? 1000 : 1000
+    );
     return () => clearInterval(id);
   }, [compute, prefersReducedMotion]);
 
   return { days: state.d, hours: state.h, minutes: state.m, seconds: state.s };
 }
 
-function CountdownDisplay({ d, h, m, s }: { d: number; h: number; m: number; s: number }) {
+function CountdownDisplay({
+  d,
+  h,
+  m,
+  s,
+}: {
+  d: number;
+  h: number;
+  m: number;
+  s: number;
+}) {
   return (
     <div className="min-w-[280px] rounded-xl bg-black/35 p-4 ring-1 ring-white/25 shadow-[0_12px_40px_rgba(0,0,0,0.45)]">
-      <p className="mb-2 text-xs tracking-[0.2em] text-white/75">TIME REMAINING</p>
+      <p className="mb-2 text-xs tracking-[0.2em] text-white/75">
+        TIME REMAINING
+      </p>
       <div className="grid grid-cols-4 gap-3 text-center">
         <TimeBox label="Days" value={d} />
         <TimeBox label="Hours" value={h} />
@@ -206,7 +243,9 @@ function TimeBox({ label, value }: { label: string; value: number }) {
   return (
     <div className="rounded-lg border border-white/20 bg-white/15 px-3 py-2 shadow-inner backdrop-blur-sm">
       <div className="text-2xl font-extrabold leading-none">{padded}</div>
-      <div className="mt-1 text-[10px] uppercase tracking-wider text-white/75">{label}</div>
+      <div className="mt-1 text-[10px] uppercase tracking-wider text-white/75">
+        {label}
+      </div>
     </div>
   );
 }

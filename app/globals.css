@@ -3,19 +3,21 @@
 @import "tailwindcss";
 /*@import "tw-animate-css";*/
 
-@custom-variant dark (&:is(.dark *));
-@reference "tailwindcss";
+.animate-marquee {
+  display: flex;
+  animation: marquee 25s linear infinite;
+}
 
 /* =========================
    Base & variables
 ========================= */
-:root{
+:root {
   /* warna utama gradient */
-  --pink-rgb: 249, 199, 201;   /* #f9c7c9 */
-  --purple-1: #9473ED;
-  --purple-2: #9980D7;
-  --purple-3: #7131C5;
-  --purple-4: #B881C9;
+  --pink-rgb: 249, 199, 201; /* #f9c7c9 */
+  --purple-1: #9473ed;
+  --purple-2: #9980d7;
+  --purple-3: #7131c5;
+  --purple-4: #b881c9;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -50,8 +52,13 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-html, body { height: 100%; }
-* { box-sizing: border-box; }
+html,
+body {
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -63,33 +70,43 @@ body {
    -> pakai: className="bg-aurora-kcs"
 ========================= */
 /* === KCS Aurora sesuai Figma === */
-.bg-aurora-kcs{
+.bg-aurora-kcs {
   /* deep purple base */
-  background-color:#2D0953;
+  background-color: #2d0953;
   /* layer 1: linear ungu kiri→kanan */
   /* layer 2: radial glow pink di kanan-atas */
-  background-image:
-    linear-gradient(90deg, #845194 0%, #6A3C81 52%, #2D0953 100%),
-    radial-gradient(920px 620px at 96% 12%,
-      #EFBBC4 0%,
+  background-image: linear-gradient(
+      90deg,
+      #845194 0%,
+      #6a3c81 52%,
+      #2d0953 100%
+    ),
+    radial-gradient(
+      920px 620px at 96% 12%,
+      #efbbc4 0%,
       #845194 33%,
-      #6A3C81 62%,
-      rgba(45,9,83,0) 100%
+      #6a3c81 62%,
+      rgba(45, 9, 83, 0) 100%
     );
   background-repeat: no-repeat;
   background-size: cover, 920px 620px; /* kunci ukuran glow agar mirip Figma */
 }
 
 /* responsif: skala glow pakai vw agar tetap di pojok kanan-atas */
-@media (max-width: 1280px){
-  .bg-aurora-kcs{
-    background-image:
-      linear-gradient(90deg, #845194 0%, #6A3C81 52%, #2D0953 100%),
-      radial-gradient(64vw 43vw at 96% 12%,
-        #EFBBC4 0%,
+@media (max-width: 1280px) {
+  .bg-aurora-kcs {
+    background-image: linear-gradient(
+        90deg,
+        #845194 0%,
+        #6a3c81 52%,
+        #2d0953 100%
+      ),
+      radial-gradient(
+        64vw 43vw at 96% 12%,
+        #efbbc4 0%,
         #845194 33%,
-        #6A3C81 62%,
-        rgba(45,9,83,0) 100%
+        #6a3c81 62%,
+        rgba(45, 9, 83, 0) 100%
       );
     background-size: cover, 64vw 43vw;
   }
@@ -97,12 +114,20 @@ body {
 
 /* ========== Helpers ========== */
 /* fokus ring default untuk keyboard users */
-:focus-visible { outline: 2px solid rgb(147 197 253); outline-offset: 2px; }
+:focus-visible {
+  outline: 2px solid rgb(147 197 253);
+  outline-offset: 2px;
+}
 
 /* hilangkan spin button di input type=number (kalau nanti dibutuhkan) */
 input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-input[type="number"]{ -moz-appearance: textfield; }
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -204,7 +229,17 @@ input[type="number"]{ -moz-appearance: textfield; }
   color: #ffffff;
 }
 
-.thin-scroll { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.25) transparent; }
-.thin-scroll::-webkit-scrollbar { width: 8px; }
-.thin-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,.25); border-radius: 999px; }
-.thin-scroll::-webkit-scrollbar-track { background: transparent; }
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}

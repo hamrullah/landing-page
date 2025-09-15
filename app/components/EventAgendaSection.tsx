@@ -12,24 +12,24 @@ export default function EventAgendaSection() {
     viewport: { once: true, margin: "-80px" },
     transition: { duration: 0.75, ease: EASE },
   } as const;
-
   return (
-    <section className="relative z-10 min-h-[92vh] w-full overflow-visible text-white bg-aurora-kcs">
-      <div className="mx-auto max-w-6xl grid grid-cols-1 gap-10 md:grid-cols-2">
+    <section className="relative z-10 w-full overflow-visible bg-aurora-kcs/90 py-16 text-white">
+      <div className="mx-auto mb-12 max-w-3xl space-y-3 px-6 text-5xl text-left md:px-0">
+        <p className="text-xs uppercase tracking-wider text-pink-200">
+          Schedule
+        </p>
+        <h2 className="text-2xl md:text-3xl font-extrabold leading-snug text-blue-950">
+          Event Agenda – The{" "}
+          <span className="bg-gradient-to-r from-pink-400 to-purple-600 bg-clip-text text-transparent">
+            Conversion Playbook
+          </span>
+          : Shaping Your 2026 Marketing Plan
+        </h2>
+      </div>
+      <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 px-6 md:px-12">
         {/* LEFT SIDE */}
         <motion.div {...fadeUp} className="space-y-6">
-          <p className="text-xs uppercase tracking-wider text-pink-300">
-            Schedule
-          </p>
-          <h2 className="text-2xl md:text-3xl font-extrabold leading-snug text-white">
-            Event Agenda – The{" "}
-            <span className="bg-gradient-to-r from-pink-400 to-purple-600 bg-clip-text text-transparent">
-              Conversion Playbook
-            </span>
-            : Shaping Your 2026 Marketing Plan
-          </h2>
-
-          <div className="space-y-2 text-white/85 text-sm leading-relaxed">
+          <div className="space-y-2 text-sm leading-relaxed text-gray-200">
             <p>
               <span className="font-semibold">Venue:</span> Colony @ KL Eco City
             </p>
@@ -46,9 +46,9 @@ export default function EventAgendaSection() {
         </motion.div>
 
         {/* RIGHT SIDE */}
-        <motion.div {...fadeUp} className="space-y-4 text-white">
-          <h3 className="text-lg font-bold text-white">Event Objective</h3>
-          <p className="text-white/90 text-sm md:text-base leading-relaxed">
+        <motion.div {...fadeUp} className="space-y-4">
+          <h3 className="text-lg font-bold text-blue-950">Event Objective</h3>
+          <p className="text-gray-200 text-sm md:text-base leading-relaxed">
             This event brings together leading voices—brands, platforms, and
             creators—to share insights on the future of marketing. From
             rebranding journeys and creator-led strategies to programmatic
